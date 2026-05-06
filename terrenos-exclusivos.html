@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exclusive Land — Terrenos y Propiedades Premium</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --gold:    #c9a84c;
+      --gold-lt: #e8d08a;
+      --gold-dk: #8a6f2e;
+      --bg:      #080c14;
+      --bg2:     #0d1220;
+      --bg3:     #111827;
+      --text:    #e2e0db;
+      --muted:   #8a8880;
+      --white:   #f5f3ef;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    .cursor {
+      width: 10px; height: 10px;
+      background: var(--gold); border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9999;
+      transform: translate(-50%,-50%);
+      transition: width .2s, height .2s;
+    }
+    .cursor-ring {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(201,168,76,.45); border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9998;
+      transform: translate(-50%,-50%);
+      transition: transform .35s ease, width .2s, height .2s;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: .03; pointer-events: none; z-index: 1;
+    }
+
+    /* ── Topbar ── */
+    .topbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 22px 48px;
+      background: linear-gradient(to bottom, rgba(8,12,20,.98), transparent);
+      transition: padding .3s;
+    }
+    .topbar.scrolled { padding: 14px 48px; background: rgba(8,12,20,.97); }
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 600; letter-spacing: .18em;
+      color: var(--gold); text-transform: uppercase;
+    }
+    .logo span { color: var(--white); font-weight: 300; }
+    .lang-switcher { display: flex; gap: 8px; }
+    .lang-btn {
+      background: transparent;
+      border: 1px solid rgba(201,168,76,.35);
+      color: var(--muted);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px; font-weight: 500; letter-spacing: .12em;
+      padding: 7px 14px; border-radius: 2px;
+      cursor: none; transition: all .25s;
+    }
+    .lang-btn:hover, .lang-btn.active { background: var(--gold); border-color: var(--gold); color: var(--bg); }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(135deg, rgba(8,12,20,.92) 0%, rgba(8,12,20,.65) 60%, rgba(8,12,20,.88) 100%),
+        url('imagenes/hero.jpg') center/cover no-repeat;
+    }
+    .hero-lines { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+    .hero-lines::before, .hero-lines::after {
+      content: ''; position: absolute;
+      border: 1px solid rgba(201,168,76,.08); border-radius: 50%;
+    }
+    .hero-lines::before {
+      width: 800px; height: 800px; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      animation: pulse-ring 6s ease-in-out infinite;
+    }
+    .hero-lines::after {
+      width: 560px; height: 560px; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      animation: pulse-ring 6s ease-in-out infinite .8s;
+    }
+    @keyframes pulse-ring {
+      0%,100% { opacity:.4; transform:translate(-50%,-50%) scale(1); }
+      50%      { opacity:.1; transform:translate(-50%,-50%) scale(1.06); }
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center; padding: 0 24px; max-width: 860px;
+    }
+    .hero-eyebrow {
+      font-size: 10px; letter-spacing: .4em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 28px;
+      opacity: 0; animation: fade-up .8s .3s forwards;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px,8vw,88px);
+      font-weight: 300; line-height: 1.05; color: var(--white);
+      opacity: 0; animation: fade-up .9s .55s forwards;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+    .hero-divider {
+      width: 48px; height: 1px; background: var(--gold); margin: 32px auto;
+      opacity: 0; animation: fade-up .7s .8s forwards;
+    }
+    .hero p {
+      font-size: 14px; line-height: 1.9; letter-spacing: .04em;
+      color: rgba(226,224,219,.7); max-width: 480px; margin: 0 auto 40px;
+      opacity: 0; animation: fade-up .7s 1s forwards;
+    }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--gold); color: var(--bg);
+      font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+      text-decoration: none; padding: 16px 36px; border-radius: 2px;
+      opacity: 0; animation: fade-up .7s 1.2s forwards;
+      transition: background .25s, transform .2s, box-shadow .25s;
+      cursor: none; position: relative; overflow: hidden;
+    }
+    .hero-cta::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);
+      transform: translateX(-100%); transition: transform .4s;
+    }
+    .hero-cta:hover::after { transform: translateX(100%); }
+    .hero-cta:hover { background: var(--gold-lt); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,.3); }
+    .hero-cta svg { width: 14px; height: 14px; }
+    .hero-scroll {
+      position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      opacity: 0; animation: fade-up .6s 1.6s forwards;
+    }
+    .hero-scroll span { font-size: 9px; letter-spacing: .35em; color: var(--muted); text-transform: uppercase; }
+    .scroll-line {
+      width: 1px; height: 48px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scroll-drop 2s ease-in-out infinite;
+    }
+    @keyframes scroll-drop {
+      0%   { transform:scaleY(0); transform-origin:top; opacity:1; }
+      50%  { transform:scaleY(1); transform-origin:top; opacity:1; }
+      51%  { transform:scaleY(1); transform-origin:bottom; }
+      100% { transform:scaleY(0); transform-origin:bottom; opacity:0; }
+    }
+    @keyframes fade-up {
+      from { opacity:0; transform:translateY(24px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    /* ── Stats ── */
+    .stats-bar {
+      background: var(--bg2);
+      border-top: 1px solid rgba(201,168,76,.12);
+      border-bottom: 1px solid rgba(201,168,76,.12);
+      display: flex; justify-content: center; flex-wrap: wrap;
+      padding: 36px 48px;
+    }
+    .stat {
+      flex: 1; min-width: 160px; text-align: center; padding: 12px 24px;
+      border-right: 1px solid rgba(201,168,76,.1);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px; font-weight: 300; color: var(--gold); line-height: 1;
+    }
+    .stat-label { font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+
+    /* ── Section header ── */
+    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-eyebrow { font-size: 9px; letter-spacing: .45em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .section-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px,5vw,52px); font-weight: 300; color: var(--white); line-height: 1.15;
+    }
+    .section-header h2 em { font-style: italic; color: var(--gold); }
+    .section-line { width: 40px; height: 1px; background: var(--gold); margin: 24px auto 0; }
+
+    /* ── Filter tabs ── */
+    .filter-tabs {
+      display: flex; justify-content: center; gap: 10px;
+      margin-bottom: 48px; flex-wrap: wrap;
+    }
+    .filter-tab {
+      background: transparent;
+      border: 1px solid rgba(201,168,76,.25);
+      color: var(--muted);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase;
+      padding: 10px 22px; border-radius: 2px;
+      cursor: none; transition: all .25s;
+    }
+    .filter-tab:hover, .filter-tab.active {
+      background: var(--gold); border-color: var(--gold); color: var(--bg);
+    }
+
+    /* ── Cards ── */
+    .properties { padding: 100px 48px; max-width: 1200px; margin: 0 auto; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
+
+    .card {
+      background: var(--bg2); border: 1px solid rgba(201,168,76,.1);
+      border-radius: 4px; overflow: hidden;
+      transition: transform .35s ease, box-shadow .35s ease, border-color .35s;
+      cursor: none;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 32px 64px rgba(0,0,0,.55), 0 0 0 1px rgba(201,168,76,.25);
+      border-color: rgba(201,168,76,.35);
+    }
+    .card.hidden { display: none; }
+
+    .card-img-wrap { position: relative; overflow: hidden; height: 240px; }
+    .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+    .card:hover .card-img-wrap img { transform: scale(1.06); }
+    .card-badge {
+      position: absolute; top: 16px; left: 16px;
+      background: var(--gold); color: var(--bg);
+      font-size: 9px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 2px;
+    }
+    .card-badge.renta { background: #2e7d6b; }
+    .card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(8,12,20,.9) 0%, transparent 55%);
+    }
+    .card-content { padding: 24px; }
+    .card-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: var(--white); margin-bottom: 8px; }
+    .card-location { font-size: 10px; letter-spacing: .25em; color: var(--muted); text-transform: uppercase; margin-bottom: 16px; }
+
+    .card-specs {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 16px;
+    }
+    .card-spec {
+      font-size: 10px; color: var(--muted); letter-spacing: .05em;
+      background: rgba(201,168,76,.07);
+      border: 1px solid rgba(201,168,76,.12);
+      padding: 4px 10px; border-radius: 2px;
+    }
+
+    .card-price { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--gold); font-weight: 300; margin-bottom: 20px; }
+    .card-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: transparent; border: 1px solid rgba(201,168,76,.4);
+      color: var(--gold); font-family: 'Montserrat', sans-serif;
+      font-size: 10px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase;
+      padding: 12px 22px; border-radius: 2px; cursor: none; transition: all .25s;
+      width: 100%; justify-content: center;
+    }
+    .card-btn:hover { background: var(--gold); color: var(--bg); box-shadow: 0 8px 24px rgba(201,168,76,.25); }
+    .card-btn svg { width: 12px; height: 12px; transition: transform .25s; }
+    .card-btn:hover svg { transform: translateX(4px); }
+
+    /* ── Why us ── */
+    .why-section {
+      padding: 100px 48px;
+      background: var(--bg2);
+      border-top: 1px solid rgba(201,168,76,.08);
+    }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 40px; max-width: 1000px; margin: 0 auto; }
+    .feature {
+      text-align: center; padding: 36px 24px;
+      border: 1px solid rgba(201,168,76,.08); border-radius: 4px;
+      transition: border-color .3s, transform .3s;
+    }
+    .feature:hover { border-color: rgba(201,168,76,.3); transform: translateY(-4px); }
+    .feature-icon { font-size: 28px; margin-bottom: 18px; }
+    .feature h3 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: var(--white); margin-bottom: 10px; }
+    .feature p { font-size: 12px; line-height: 1.8; color: var(--muted); letter-spacing: .02em; }
+
+    /* ── Detail overlay ── */
+    .detail-overlay {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: rgba(8,12,20,.95); backdrop-filter: blur(8px); overflow-y: auto;
+    }
+    .detail-overlay.open { display: flex; animation: overlay-in .3s ease; }
+    @keyframes overlay-in { from{opacity:0;} to{opacity:1;} }
+
+    .detail-panel { margin: auto; max-width: 860px; width: 100%; padding: 64px 48px; position: relative; }
+    .detail-close {
+      position: absolute; top: 24px; right: 24px;
+      background: transparent; border: 1px solid rgba(201,168,76,.3);
+      color: var(--gold); font-size: 18px;
+      width: 40px; height: 40px; border-radius: 2px;
+      cursor: none; display: flex; align-items: center; justify-content: center;
+      transition: all .2s;
+    }
+    .detail-close:hover { background: var(--gold); color: var(--bg); }
+    .detail-label { font-size: 9px; letter-spacing: .4em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .detail-panel h2 { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; color: var(--white); margin-bottom: 12px; }
+    .detail-desc { font-size: 13px; line-height: 1.9; color: rgba(226,224,219,.7); margin-bottom: 28px; max-width: 560px; }
+
+    .detail-specs-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+      gap: 12px; margin-bottom: 32px;
+    }
+    .detail-spec-item {
+      background: rgba(201,168,76,.05);
+      border: 1px solid rgba(201,168,76,.15);
+      border-radius: 3px; padding: 14px 16px;
+    }
+    .detail-spec-label { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .detail-spec-value { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--white); }
+
+    .detail-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 36px; }
+    .detail-imgs img { width: 100%; height: 200px; object-fit: cover; border-radius: 3px; border: 1px solid rgba(201,168,76,.1); }
+    .detail-price { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--gold); font-weight: 300; margin-bottom: 28px; }
+    .detail-cta {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--gold); color: var(--bg);
+      font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+      text-decoration: none; padding: 16px 36px; border-radius: 2px;
+      cursor: none; transition: all .25s;
+    }
+    .detail-cta:hover { background: var(--gold-lt); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(201,168,76,.3); }
+
+    /* ── Footer ── */
+    footer {
+      padding: 48px; border-top: 1px solid rgba(201,168,76,.12);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--gold); letter-spacing: .15em; }
+    footer p { font-size: 11px; color: var(--muted); letter-spacing: .05em; }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .topbar { padding: 18px 24px; }
+      .properties, .why-section { padding: 70px 24px; }
+      .detail-panel { padding: 48px 24px; }
+      .detail-imgs { grid-template-columns: 1fr; }
+      .stats-bar { padding: 28px 24px; }
+      footer { padding: 36px 24px; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Topbar -->
+  <nav class="topbar" id="topbar">
+    <div class="logo">EXCLUSIVE <span>LAND</span></div>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-lines"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow" data-es="Inversiones de alto nivel" data-en="Premium Real Estate Investment"></p>
+      <h1><span data-es="Terrenos y <em>Propiedades</em> Premium" data-en="Premium <em>Land &amp; Properties</em>"></span></h1>
+      <div class="hero-divider"></div>
+      <p data-es="Seleccionamos terrenos y propiedades estratégicas para inversionistas que buscan crecimiento, seguridad y lujo en los mercados más exclusivos de Baja California Sur."
+         data-en="We handpick land and properties for investors seeking growth, security, and luxury in the most exclusive markets of Baja California Sur."></p>
+      <a class="hero-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20invertir%20en%20terrenos%20o%20propiedades">
+        <span data-es="Solicitar información" data-en="Request information"></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="hero-scroll">
+      <span data-es="Explorar" data-en="Explore"></span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num">3+</div>
+      <div class="stat-label" data-es="Propiedades activas" data-en="Active listings"></div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">98%</div>
+      <div class="stat-label" data-es="Clientes satisfechos" data-en="Satisfied clients"></div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">BCS</div>
+      <div class="stat-label" data-es="Baja California Sur" data-en="Baja California Sur"></div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3x</div>
+      <div class="stat-label" data-es="Plusvalía promedio" data-en="Average appreciation"></div>
+    </div>
+  </div>
+
+  <!-- Properties -->
+  <section class="properties">
+    <div class="section-header">
+      <p class="section-eyebrow" data-es="Portafolio exclusivo" data-en="Exclusive portfolio"></p>
+      <h2><span data-es="Nuestras <em>propiedades</em>" data-en="Our <em>listings</em>"></span></h2>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="filter-tabs">
+      <button class="filter-tab active" onclick="filtrar('todos')" data-es="Todos" data-en="All"></button>
+      <button class="filter-tab" onclick="filtrar('terreno')" data-es="Terrenos" data-en="Land"></button>
+      <button class="filter-tab" onclick="filtrar('casa')" data-es="Casas" data-en="Houses"></button>
+      <button class="filter-tab" onclick="filtrar('renta')" data-es="Renta" data-en="Rental"></button>
+    </div>
+
+    <div class="cards">
+
+      <!-- Terreno Centenario -->
+      <div class="card" data-tipo="terreno">
+        <div class="card-img-wrap">
+          <img src="imagenes/terreno-centenario/foto.jpg" alt="Terreno Centenario" loading="lazy" width="400" height="240"/>
+          <div class="card-badge" data-es="En venta" data-en="For sale"></div>
+          <div class="card-overlay"></div>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title" data-es="Terreno Centenario" data-en="Centenario Land"></h3>
+          <p class="card-location">📍 El Zacatal, Centenario — BCS</p>
+          <div class="card-specs">
+            <span class="card-spec">9,072 m²</span>
+            <span class="card-spec" data-es="Doble acceso" data-en="Dual access"></span>
+            <span class="card-spec">CP 23205</span>
+          </div>
+          <p class="card-price card-price-es">$15,000,000 MXN</p>
+          <p class="card-price card-price-en" style="display:none">$856,000 USD</p>
+          <button class="card-btn" onclick="verDetalle('dTerreno')">
+            <span data-es="Ver propiedad" data-en="View property"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Casa 1 -->
+      <div class="card" data-tipo="casa">
+        <div class="card-img-wrap">
+          <img src="imagenes/casa-adrian-martinez/foto1.jpg" alt="Casa Residencial" loading="lazy" width="400" height="240"/>
+          <div class="card-badge" data-es="En venta" data-en="For sale"></div>
+          <div class="card-overlay"></div>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title" data-es="Casa Residencial" data-en="Residential House"></h3>
+          <p class="card-location">📍 Baja California Sur</p>
+          <div class="card-specs">
+            <span class="card-spec" data-es="130 m² construcción" data-en="130 m² built"></span>
+            <span class="card-spec" data-es="420 m² terreno" data-en="420 m² lot"></span>
+            <span class="card-spec" data-es="3 recámaras" data-en="3 bedrooms"></span>
+            <span class="card-spec" data-es="3 baños" data-en="3 bathrooms"></span>
+          </div>
+          <p class="card-price card-price-es">$6,500,000 MXN</p>
+          <p class="card-price card-price-en" style="display:none">$371,000 USD</p>
+          <button class="card-btn" onclick="verDetalle('dCasa1')">
+            <span data-es="Ver propiedad" data-en="View property"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+
+
+      <!-- Depto Renta -->
+      <div class="card" data-tipo="renta">
+        <div class="card-img-wrap">
+          <img src="imagenes/depto-americas/foto1.jpg" alt="Departamento en Renta" loading="lazy" width="400" height="240"/>
+          <div class="card-badge renta" data-es="En renta" data-en="For rent"></div>
+          <div class="card-overlay"></div>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title" data-es="Departamento Campestre" data-en="Campestre Apartment"></h3>
+          <p class="card-location">📍 Blvd. de las Américas, Col. Campestre — La Paz</p>
+          <div class="card-specs">
+            <span class="card-spec" data-es="Totalmente equipado" data-en="Fully equipped"></span>
+            <span class="card-spec" data-es="Cochera privada" data-en="Private garage"></span>
+            <span class="card-spec" data-es="Alberca común" data-en="Shared pool"></span>
+            <span class="card-spec" data-es="Contrato 1 año" data-en="1-year lease"></span>
+          </div>
+          <p class="card-price card-price-es">$25,000 MXN / mes</p>
+          <p class="card-price card-price-en" style="display:none">$1,427 USD / mo</p>
+          <button class="card-btn" onclick="verDetalle('dDepto')">
+            <span data-es="Ver propiedad" data-en="View property"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Why us -->
+  <section class="why-section">
+    <div class="section-header">
+      <p class="section-eyebrow" data-es="Nuestra propuesta" data-en="Our proposition"></p>
+      <h2><span data-es="¿Por qué <em>invertir</em> con nosotros?" data-en="Why <em>invest</em> with us?"></span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">🏅</div>
+        <h3 data-es="Verificadas" data-en="Verified"></h3>
+        <p data-es="Cada propiedad pasa por un riguroso proceso de verificación legal y técnica." data-en="Every property goes through rigorous legal and technical verification."></p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📈</div>
+        <h3 data-es="Alta plusvalía" data-en="High appreciation"></h3>
+        <p data-es="Ubicaciones estratégicas con crecimiento documentado y proyectado." data-en="Strategic locations with documented and projected growth."></p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🤝</div>
+        <h3 data-es="Trato directo" data-en="Direct deal"></h3>
+        <p data-es="Sin intermediarios innecesarios. Atención personalizada de inicio a fin." data-en="No unnecessary middlemen. Personalized attention from start to finish."></p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔒</div>
+        <h3 data-es="Seguridad total" data-en="Full security"></h3>
+        <p data-es="Asesoría legal incluida para blindar tu inversión en todo momento." data-en="Legal advice included to protect your investment at all times."></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MODALES ── -->
+
+  <!-- Terreno Centenario -->
+  <div class="detail-overlay" id="dTerreno">
+    <div class="detail-panel">
+      <button class="detail-close" onclick="cerrarDetalle('dTerreno')">✕</button>
+      <p class="detail-label" data-es="Terreno en venta" data-en="Land for sale"></p>
+      <h2 data-es="Terreno Centenario" data-en="Centenario Land"></h2>
+      <p class="detail-desc" data-es="Terreno de gran dimensión ubicado en El Zacatal, Centenario. Cuenta con acceso por Calle Transpeninsular y calle trasera, ideal para desarrollos comerciales, residenciales o logísticos."
+         data-en="Large-scale land in El Zacatal, Centenario. Features dual street access via Carretera Transpeninsular and rear road, ideal for commercial, residential, or logistics development."></p>
+      <div class="detail-specs-grid">
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Superficie" data-en="Area"></div>
+          <div class="detail-spec-value">9,072 m²</div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Código postal" data-en="Zip code"></div>
+          <div class="detail-spec-value">CP 23205</div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Accesos" data-en="Access"></div>
+          <div class="detail-spec-value" data-es="Doble acceso" data-en="Dual access"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Tipo" data-en="Type"></div>
+          <div class="detail-spec-value" data-es="Terreno" data-en="Land"></div>
+        </div>
+      </div>
+      <div class="detail-imgs">
+        <img src="imagenes/terreno-centenario/foto.jpg" alt="Terreno Centenario" loading="lazy"/>
+        <img src="imagenes/terreno-centenario/foto.jpg" alt="Terreno Centenario" loading="lazy"/>
+      </div>
+      <p class="detail-price detail-price-es">$15,000,000 MXN</p>
+      <p class="detail-price detail-price-en" style="display:none">$856,000 USD</p>
+      <a class="detail-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20Terreno%20Centenario">
+        <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp"></span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Casa 1 -->
+  <div class="detail-overlay" id="dCasa1">
+    <div class="detail-panel">
+      <button class="detail-close" onclick="cerrarDetalle('dCasa1')">✕</button>
+      <p class="detail-label" data-es="Casa en venta" data-en="House for sale"></p>
+      <h2 data-es="Casa Residencial" data-en="Residential House"></h2>
+      <p class="detail-desc" data-es="Casa residencial con diseño moderno. Cuenta con cocina integral con barra de granito, pisos interceramic rectificado 60x60, área de terraza con pérgolas, barra con fregadero y aire acondicionado incluido."
+         data-en="Modern residential home featuring integrated kitchen with granite countertop, 60x60 rectified tile floors, terrace with pergolas, outdoor bar with sink, and air conditioning included."></p>
+      <div class="detail-specs-grid">
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Construcción" data-en="Built area"></div>
+          <div class="detail-spec-value">130 m²</div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Terreno" data-en="Lot size"></div>
+          <div class="detail-spec-value">420 m²</div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Recámaras" data-en="Bedrooms"></div>
+          <div class="detail-spec-value">3</div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Baños" data-en="Bathrooms"></div>
+          <div class="detail-spec-value" data-es="3 + 1½" data-en="3 + 1½"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Extras" data-en="Extras"></div>
+          <div class="detail-spec-value" data-es="Terraza + Pérgola" data-en="Terrace + Pergola"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label">A/C</div>
+          <div class="detail-spec-value" data-es="Incluido" data-en="Included"></div>
+        </div>
+      </div>
+      <div class="detail-imgs">
+        <img src="imagenes/casa-adrian-martinez/foto1.jpg" alt="Casa 1" loading="lazy"/>
+        <img src="imagenes/casa-adrian-martinez/foto2.jpg" alt="Casa interior" loading="lazy"/>
+        <img src="imagenes/casa-adrian-martinez/foto3.jpg" alt="Casa terraza" loading="lazy"/>
+        <img src="imagenes/casa-adrian-martinez/foto4.jpg" alt="Casa extra" loading="lazy"/>
+      </div>
+      <p class="detail-price detail-price-es">$6,500,000 MXN</p>
+      <p class="detail-price detail-price-en" style="display:none">$371,000 USD</p>
+      <a class="detail-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20la%20Casa%20Residencial">
+        <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp"></span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+
+
+  <!-- Depto Renta -->
+  <div class="detail-overlay" id="dDepto">
+    <div class="detail-panel">
+      <button class="detail-close" onclick="cerrarDetalle('dDepto')">✕</button>
+      <p class="detail-label" data-es="Departamento en renta" data-en="Apartment for rent"></p>
+      <h2 data-es="Departamento Campestre" data-en="Campestre Apartment"></h2>
+      <p class="detail-desc" data-es="Departamento completamente equipado en ubicación céntrica y privilegiada. Todo lo que necesitas está incluido: cocina con utensilios, instalaciones eléctricas, cochera privada y alberca común. Cerca de plazas, supermercados, farmacias y hospitales."
+         data-en="Fully equipped apartment in a central, privileged location. Everything included: kitchen with utensils, all-electric, private garage, and shared pool. Close to malls, supermarkets, pharmacies, and hospitals."></p>
+      <div class="detail-specs-grid">
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Ubicación" data-en="Location"></div>
+          <div class="detail-spec-value" data-es="Col. Campestre" data-en="Campestre District"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Estacionamiento" data-en="Parking"></div>
+          <div class="detail-spec-value" data-es="Cochera privada" data-en="Private garage"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Alberca" data-en="Pool"></div>
+          <div class="detail-spec-value" data-es="Común" data-en="Shared"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Contrato" data-en="Lease"></div>
+          <div class="detail-spec-value" data-es="1 año" data-en="1 year"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Mascotas" data-en="Pets"></div>
+          <div class="detail-spec-value" data-es="No permitidas" data-en="Not allowed"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Fiestas" data-en="Parties"></div>
+          <div class="detail-spec-value" data-es="No permitidas" data-en="Not allowed"></div>
+        </div>
+      </div>
+      <div class="detail-imgs">
+        <img src="imagenes/depto-americas/foto1.jpg" alt="Departamento 1" loading="lazy"/>
+        <img src="imagenes/depto-americas/foto2.jpg" alt="Departamento 2" loading="lazy"/>
+        <img src="imagenes/depto-americas/foto3.jpg" alt="Departamento 3" loading="lazy"/>
+        <img src="imagenes/depto-americas/foto4.jpg" alt="Departamento 4" loading="lazy"/>
+        <img src="imagenes/depto-americas/foto5.jpg" alt="Departamento 5" loading="lazy"/>
+        <img src="imagenes/depto-americas/foto6.jpg" alt="Departamento 6" loading="lazy"/>
+        <img src="imagenes/depto-americas/foto7.jpg" alt="Departamento 7" loading="lazy"/>
+        <img src="imagenes/depto-americas/foto8.jpg" alt="Departamento 8" loading="lazy"/>
+        <img src="imagenes/depto-americas/foto9.jpg" alt="Departamento 9" loading="lazy"/>
+        <img src="imagenes/depto-americas/foto10.jpg" alt="Departamento 10" loading="lazy"/>
+      </div>
+      <p class="detail-price detail-price-es">$25,000 MXN / mes</p>
+      <p class="detail-price detail-price-en" style="display:none">$1,427 USD / mo</p>
+      <a class="detail-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20Departamento%20en%20Renta">
+        <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp"></span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">EXCLUSIVE LAND</div>
+    <p data-es="© 2025 · Todos los derechos reservados" data-en="© 2025 · All rights reserved"></p>
+  </footer>
+
+  <script>
+    /* ── Cursor ── */
+    const cur = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mx=0, my=0, rx=0, ry=0;
+    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+    (function loop(){
+      rx += (mx-rx)*.12; ry += (my-ry)*.12;
+      cur.style.left=mx+'px'; cur.style.top=my+'px';
+      ring.style.left=rx+'px'; ring.style.top=ry+'px';
+      requestAnimationFrame(loop);
+    })();
+    document.querySelectorAll('a,button,.card').forEach(el=>{
+      el.addEventListener('mouseenter',()=>{ cur.style.width='18px'; cur.style.height='18px'; ring.style.width='54px'; ring.style.height='54px'; });
+      el.addEventListener('mouseleave',()=>{ cur.style.width='10px'; cur.style.height='10px'; ring.style.width='36px'; ring.style.height='36px'; });
+    });
+
+    /* ── Topbar ── */
+    window.addEventListener('scroll',()=>{
+      document.getElementById('topbar').classList.toggle('scrolled', window.scrollY>60);
+    });
+
+    /* ── Idioma ── */
+    let lang = 'es';
+    function setLang(l){
+      lang = l;
+      document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.lang-btn')[l==='es'?0:1].classList.add('active');
+      document.querySelectorAll('[data-es]').forEach(el=>{
+        const v = el.getAttribute('data-'+l);
+        if(v!==null) el.innerHTML=v;
+      });
+      document.querySelectorAll('.card-price-es,.detail-price-es').forEach(e=>e.style.display=l==='es'?'block':'none');
+      document.querySelectorAll('.card-price-en,.detail-price-en').forEach(e=>e.style.display=l==='en'?'block':'none');
+    }
+    setLang('es');
+
+    /* ── Filtro ── */
+    function filtrar(tipo){
+      document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
+      event.target.classList.add('active');
+      document.querySelectorAll('.card').forEach(c=>{
+        if(tipo==='todos' || c.dataset.tipo===tipo){
+          c.classList.remove('hidden');
+        } else {
+          c.classList.add('hidden');
+        }
+      });
+    }
+
+    /* ── Modales ── */
+    function verDetalle(id){
+      document.getElementById(id).classList.add('open');
+      document.body.style.overflow='hidden';
+    }
+    function cerrarDetalle(id){
+      document.getElementById(id).classList.remove('open');
+      document.body.style.overflow='';
+    }
+    document.querySelectorAll('.detail-overlay').forEach(o=>{
+      o.addEventListener('click', e=>{ if(e.target===o) cerrarDetalle(o.id); });
+    });
+    document.addEventListener('keydown', e=>{
+      if(e.key==='Escape') document.querySelectorAll('.detail-overlay.open').forEach(o=>cerrarDetalle(o.id));
+    });
+
+    /* ── Scroll reveal ── */
+    const obs = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }});
+    }, {threshold:.12});
+    document.querySelectorAll('.card,.feature,.stat').forEach(el=>{
+      el.style.opacity='0'; el.style.transform='translateY(30px)';
+      el.style.transition='opacity .6s ease, transform .6s ease';
+      obs.observe(el);
+    });
+  </script>
+</body>
+</html>
