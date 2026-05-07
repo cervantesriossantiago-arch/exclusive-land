@@ -376,8 +376,30 @@
     .detail-spec-label { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
     .detail-spec-value { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--white); }
 
-    .detail-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 36px; }
-    .detail-imgs img { width: 100%; height: 200px; object-fit: cover; border-radius: 3px; border: 1px solid rgba(201,168,76,.1); }
+    .detail-imgs { position: relative; margin-bottom: 36px; border-radius: 4px; overflow: hidden; }
+    .slider-track { display: flex; transition: transform .4s ease; }
+    .slider-track img { min-width: 100%; height: 380px; object-fit: cover; border-radius: 4px; }
+    .slider-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(8,12,20,.7); border: 1px solid rgba(201,168,76,.4);
+      color: var(--gold); font-size: 18px;
+      width: 44px; height: 44px; border-radius: 2px;
+      cursor: none; display: flex; align-items: center; justify-content: center;
+      transition: all .2s; z-index: 10;
+    }
+    .slider-btn:hover { background: var(--gold); color: var(--bg); }
+    .slider-btn.prev { left: 12px; }
+    .slider-btn.next { right: 12px; }
+    .slider-dots {
+      display: flex; justify-content: center; gap: 8px;
+      margin-top: 14px; margin-bottom: 28px;
+    }
+    .slider-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(201,168,76,.25); border: none;
+      cursor: none; transition: all .25s; padding: 0;
+    }
+    .slider-dot.active { background: var(--gold); transform: scale(1.3); }
     .detail-price { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--gold); font-weight: 300; margin-bottom: 28px; }
     .detail-cta {
       display: inline-flex; align-items: center; gap: 12px;
@@ -619,9 +641,15 @@
           <div class="detail-spec-value" data-es="Terreno" data-en="Land"></div>
         </div>
       </div>
-      <div class="detail-imgs">
-        <img src="imagenes/terreno-centenario/foto.jpg" alt="Terreno Centenario" loading="lazy"/>
-        <img src="imagenes/terreno-centenario/foto.jpg" alt="Terreno Centenario" loading="lazy"/>
+      <div class="detail-imgs" id="slider-terreno">
+        <div class="slider-track">
+          <img src="imagenes/terreno-centenario/foto.jpg" alt="Terreno Centenario"/>
+        </div>
+        <button class="slider-btn prev" onclick="slideMove('slider-terreno',-1)">&#8592;</button>
+        <button class="slider-btn next" onclick="slideMove('slider-terreno',1)">&#8594;</button>
+      </div>
+      <div class="slider-dots" id="dots-slider-terreno">
+        <button class="slider-dot active"></button>
       </div>
       <p class="detail-price detail-price-es">$15,000,000 MXN</p>
       <p class="detail-price detail-price-en" style="display:none">$856,000 USD</p>
@@ -666,11 +694,21 @@
           <div class="detail-spec-value" data-es="Incluido" data-en="Included"></div>
         </div>
       </div>
-      <div class="detail-imgs">
-        <img src="imagenes/casa-adrian-martinez/foto1.jpg" alt="Casa 1" loading="lazy"/>
-        <img src="imagenes/casa-adrian-martinez/foto2.jpg" alt="Casa interior" loading="lazy"/>
-        <img src="imagenes/casa-adrian-martinez/foto3.jpg" alt="Casa terraza" loading="lazy"/>
-        <img src="imagenes/casa-adrian-martinez/foto4.jpg" alt="Casa extra" loading="lazy"/>
+      <div class="detail-imgs" id="slider-casa">
+        <div class="slider-track">
+          <img src="imagenes/casa-adrian-martinez/foto1.jpg" alt="Casa 1"/>
+          <img src="imagenes/casa-adrian-martinez/foto2.jpg" alt="Casa 2"/>
+          <img src="imagenes/casa-adrian-martinez/foto3.jpg" alt="Casa 3"/>
+          <img src="imagenes/casa-adrian-martinez/foto4.jpg" alt="Casa 4"/>
+        </div>
+        <button class="slider-btn prev" onclick="slideMove('slider-casa',-1)">&#8592;</button>
+        <button class="slider-btn next" onclick="slideMove('slider-casa',1)">&#8594;</button>
+      </div>
+      <div class="slider-dots" id="dots-slider-casa">
+        <button class="slider-dot active"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
       </div>
       <p class="detail-price detail-price-es">$6,500,000 MXN</p>
       <p class="detail-price detail-price-en" style="display:none">$371,000 USD</p>
@@ -717,17 +755,33 @@
           <div class="detail-spec-value" data-es="No permitidas" data-en="Not allowed"></div>
         </div>
       </div>
-      <div class="detail-imgs">
-        <img src="imagenes/depto-americas/foto1.jpg" alt="Departamento 1" loading="lazy"/>
-        <img src="imagenes/depto-americas/foto2.jpg" alt="Departamento 2" loading="lazy"/>
-        <img src="imagenes/depto-americas/foto3.jpg" alt="Departamento 3" loading="lazy"/>
-        <img src="imagenes/depto-americas/foto4.jpg" alt="Departamento 4" loading="lazy"/>
-        <img src="imagenes/depto-americas/foto5.jpg" alt="Departamento 5" loading="lazy"/>
-        <img src="imagenes/depto-americas/foto6.jpg" alt="Departamento 6" loading="lazy"/>
-        <img src="imagenes/depto-americas/foto7.jpg" alt="Departamento 7" loading="lazy"/>
-        <img src="imagenes/depto-americas/foto8.jpg" alt="Departamento 8" loading="lazy"/>
-        <img src="imagenes/depto-americas/foto9.jpg" alt="Departamento 9" loading="lazy"/>
-        <img src="imagenes/depto-americas/foto10.jpg" alt="Departamento 10" loading="lazy"/>
+      <div class="detail-imgs" id="slider-depto">
+        <div class="slider-track">
+          <img src="imagenes/depto-americas/foto1.jpg" alt="Depto 1"/>
+          <img src="imagenes/depto-americas/foto2.jpg" alt="Depto 2"/>
+          <img src="imagenes/depto-americas/foto3.jpg" alt="Depto 3"/>
+          <img src="imagenes/depto-americas/foto4.jpg" alt="Depto 4"/>
+          <img src="imagenes/depto-americas/foto5.jpg" alt="Depto 5"/>
+          <img src="imagenes/depto-americas/foto6.jpg" alt="Depto 6"/>
+          <img src="imagenes/depto-americas/foto7.jpg" alt="Depto 7"/>
+          <img src="imagenes/depto-americas/foto8.jpg" alt="Depto 8"/>
+          <img src="imagenes/depto-americas/foto9.jpg" alt="Depto 9"/>
+          <img src="imagenes/depto-americas/foto10.jpg" alt="Depto 10"/>
+        </div>
+        <button class="slider-btn prev" onclick="slideMove('slider-depto',-1)">&#8592;</button>
+        <button class="slider-btn next" onclick="slideMove('slider-depto',1)">&#8594;</button>
+      </div>
+      <div class="slider-dots" id="dots-slider-depto">
+        <button class="slider-dot active"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
       </div>
       <p class="detail-price detail-price-es">$25,000 MXN / mes</p>
       <p class="detail-price detail-price-en" style="display:none">$1,427 USD / mo</p>
@@ -745,6 +799,35 @@
   </footer>
 
   <script>
+    /* ── Slider ── */
+    const sliderState = {};
+    function slideMove(id, dir) {
+      const wrap = document.getElementById(id);
+      const track = wrap.querySelector('.slider-track');
+      const imgs = track.querySelectorAll('img');
+      const dots = document.querySelectorAll('#dots-' + id + ' .slider-dot');
+      if (!sliderState[id]) sliderState[id] = 0;
+      sliderState[id] = (sliderState[id] + dir + imgs.length) % imgs.length;
+      track.style.transform = `translateX(-${sliderState[id] * 100}%)`;
+      dots.forEach((d,i) => d.classList.toggle('active', i === sliderState[id]));
+    }
+
+    /* ── Reset slider on modal open ── */
+    const _verDetalle = verDetalle;
+    function verDetalle(id) {
+      _verDetalle(id);
+      const sliderMap = { dTerreno: 'slider-terreno', dCasa1: 'slider-casa', dDepto: 'slider-depto' };
+      const sid = sliderMap[id];
+      if (sid) {
+        sliderState[sid] = 0;
+        const wrap = document.getElementById(sid);
+        if (wrap) {
+          wrap.querySelector('.slider-track').style.transform = 'translateX(0)';
+          document.querySelectorAll('#dots-' + sid + ' .slider-dot').forEach((d,i) => d.classList.toggle('active', i===0));
+        }
+      }
+    }
+
     /* ── Cursor ── */
     const cur = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
