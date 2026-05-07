@@ -419,6 +419,68 @@
     }
     .detail-cta:hover { background: var(--gold-lt); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(201,168,76,.3); }
 
+    /* ── About ── */
+    .about-section {
+      padding: 100px 48px;
+      background: var(--bg3);
+      border-top: 1px solid rgba(201,168,76,.08);
+    }
+    .about-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .about-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 300; line-height: 1.15; color: var(--white);
+    }
+    .about-title em { font-style: italic; color: var(--gold); }
+    .about-text {
+      font-size: 13px; line-height: 1.9; color: rgba(226,224,219,.7);
+      letter-spacing: .02em; margin-bottom: 16px;
+    }
+    .about-stats {
+      display: flex; gap: 32px; margin-top: 36px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(201,168,76,.12);
+    }
+    .about-stat { text-align: center; }
+    .about-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px; font-weight: 300; color: var(--gold); line-height: 1;
+    }
+    .about-stat-label {
+      font-size: 9px; letter-spacing: .25em; text-transform: uppercase;
+      color: var(--muted); margin-top: 6px;
+    }
+    .about-right {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .about-card {
+      background: var(--bg2);
+      border: 1px solid rgba(201,168,76,.1);
+      border-radius: 4px; padding: 28px 20px;
+      transition: border-color .3s, transform .3s;
+    }
+    .about-card:hover { border-color: rgba(201,168,76,.3); transform: translateY(-4px); }
+    .about-card-icon { font-size: 28px; margin-bottom: 14px; }
+    .about-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; font-weight: 400; color: var(--white);
+      margin-bottom: 8px;
+    }
+    .about-card p { font-size: 11px; line-height: 1.8; color: var(--muted); }
+    @media (max-width: 768px) {
+      .about-wrapper { grid-template-columns: 1fr; gap: 48px; }
+      .about-right { grid-template-columns: 1fr; }
+      .about-stats { gap: 20px; }
+    }
+
     /* ── Contact ── */
     .contact-section {
       padding: 100px 48px;
@@ -861,6 +923,61 @@
       </a>
     </div>
   </div>
+
+  <!-- Sobre nosotros -->
+  <section class="about-section">
+    <div class="about-wrapper">
+      <div class="about-left">
+        <p class="section-eyebrow" data-es="Nuestra historia" data-en="Our story"></p>
+        <h2 class="about-title">
+          <span data-es="El lujo <em>silencioso</em> y discreto de Baja California Sur" data-en="The <em>silent</em> and discreet luxury of Baja California Sur"></span>
+        </h2>
+        <div class="section-line" style="margin: 24px 0;"></div>
+        <p class="about-text" data-es="Somos un equipo de profesionales originarios de Baja California Sur, con más de 5 años de experiencia en el mercado inmobiliario de la región. Conocemos cada rincón de esta tierra privilegiada — no solo como profesionales, sino como parte de ella."
+           data-en="We are a team of professionals native to Baja California Sur, with over 5 years of experience in the region's real estate market. We know every corner of this privileged land — not just as professionals, but as a part of it."></p>
+        <p class="about-text" data-es="Nuestra ventaja más importante: somos liderados por un abogado especializado en bienes raíces. Cada transacción está blindada legalmente desde el primer día, garantizando total seguridad jurídica para inversionistas nacionales e internacionales."
+           data-en="Our most important advantage: we are led by a real estate attorney. Every transaction is legally protected from day one, ensuring full legal security for both national and international investors."></p>
+        <p class="about-text" data-es="No buscamos volumen. Buscamos excelencia. Cada propiedad que manejamos ha sido seleccionada con criterio, verificada con rigor y presentada con la discreción que merece una inversión de alto nivel."
+           data-en="We don't chase volume. We pursue excellence. Every property we handle has been selected with judgment, verified with rigor, and presented with the discretion that a high-level investment deserves."></p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="about-stat-num">5+</div>
+            <div class="about-stat-label" data-es="Años de experiencia" data-en="Years of experience"></div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">20+</div>
+            <div class="about-stat-label" data-es="Propiedades vendidas" data-en="Properties sold"></div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">100%</div>
+            <div class="about-stat-label" data-es="Respaldo legal" data-en="Legal backing"></div>
+          </div>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="about-card">
+          <div class="about-card-icon">⚖️</div>
+          <h3 data-es="Respaldo Legal" data-en="Legal Backing"></h3>
+          <p data-es="Dirección a cargo de un abogado especializado en bienes raíces. Tu inversión protegida desde el primer día." data-en="Led by a real estate attorney. Your investment protected from day one."></p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">🌵</div>
+          <h3 data-es="Locales de BCS" data-en="BCS Locals"></h3>
+          <p data-es="Todo el equipo es originario de Baja California Sur. Conocemos el mercado, las zonas y el potencial mejor que nadie." data-en="Our entire team is native to Baja California Sur. We know the market, the areas, and the potential better than anyone."></p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">🤫</div>
+          <h3 data-es="Discreción Total" data-en="Total Discretion"></h3>
+          <p data-es="Manejamos cada operación con la confidencialidad y el profesionalismo que una inversión de alto nivel merece." data-en="We handle every transaction with the confidentiality and professionalism that a high-level investment deserves."></p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">🏆</div>
+          <h3 data-es="Equipo de Élite" data-en="Elite Team"></h3>
+          <p data-es="Personas responsables, comprometidas y admirables. Un equipo que trabaja con orgullo y pasión por BCS." data-en="Responsible, committed, and admirable people. A team that works with pride and passion for BCS."></p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Contacto -->
   <section class="contact-section">
