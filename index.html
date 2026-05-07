@@ -410,6 +410,67 @@
     }
     .detail-cta:hover { background: var(--gold-lt); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(201,168,76,.3); }
 
+    /* ── Contact ── */
+    .contact-section {
+      padding: 100px 48px;
+      background: var(--bg);
+      border-top: 1px solid rgba(201,168,76,.08);
+    }
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 64px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 32px; padding-top: 8px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 16px; }
+    .contact-icon { font-size: 22px; margin-top: 2px; }
+    .contact-label { font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .contact-value { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--white); }
+    .contact-link { text-decoration: none; transition: color .2s; }
+    .contact-link:hover { color: var(--gold); }
+
+    .contact-form { display: flex; flex-direction: column; gap: 20px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group label {
+      font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: var(--muted);
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      background: var(--bg2);
+      border: 1px solid rgba(201,168,76,.15);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px; font-weight: 300;
+      padding: 14px 16px; border-radius: 2px;
+      outline: none; transition: border-color .25s;
+      width: 100%;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+    .form-group select option { background: var(--bg2); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+      background: var(--gold); color: var(--bg);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+      padding: 16px 36px; border-radius: 2px; border: none;
+      cursor: none; transition: all .25s; width: 100%;
+    }
+    .form-btn:hover { background: var(--gold-lt); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(201,168,76,.3); }
+    .form-success {
+      text-align: center; padding: 16px;
+      border: 1px solid rgba(201,168,76,.3); border-radius: 2px;
+      font-size: 13px; color: var(--gold);
+    }
+    @media (max-width: 768px) {
+      .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
     /* ── Footer ── */
     footer {
       padding: 48px; border-top: 1px solid rgba(201,168,76,.12);
@@ -791,6 +852,80 @@
       </a>
     </div>
   </div>
+
+  <!-- Contacto -->
+  <section class="contact-section">
+    <div class="section-header">
+      <p class="section-eyebrow" data-es="Escríbenos" data-en="Get in touch"></p>
+      <h2><span data-es="¿Listo para <em>invertir</em>?" data-en="Ready to <em>invest</em>?"></span></h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <p class="contact-label" data-es="Ubicación" data-en="Location"></p>
+            <p class="contact-value">La Paz, Baja California Sur, México</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <p class="contact-label">WhatsApp</p>
+            <a href="https://wa.me/526121560921" class="contact-value contact-link">+52 612 156 0921</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <p class="contact-label" data-es="Correo" data-en="Email"></p>
+            <a href="mailto:cervantesriossantiago@gmail.com" class="contact-value contact-link">cervantesriossantiago@gmail.com</a>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" action="https://formspree.io/f/mzdoaepw" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label data-es="Nombre completo" data-en="Full name"></label>
+            <input type="text" name="nombre" required placeholder=" "/>
+          </div>
+          <div class="form-group">
+            <label data-es="Teléfono" data-en="Phone"></label>
+            <input type="tel" name="telefono" placeholder=" "/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label data-es="Correo electrónico" data-en="Email address"></label>
+          <input type="email" name="email" required placeholder=" "/>
+        </div>
+        <div class="form-group">
+          <label data-es="Propiedad de interés" data-en="Property of interest"></label>
+          <select name="propiedad">
+            <option value="" data-es="Selecciona una propiedad" data-en="Select a property"></option>
+            <option value="terreno-centenario" data-es="Terreno Centenario — $15,000,000 MXN" data-en="Centenario Land — $856,000 USD"></option>
+            <option value="casa-residencial" data-es="Casa Residencial — $6,500,000 MXN" data-en="Residential House — $371,000 USD"></option>
+            <option value="depto-americas" data-es="Departamento Américas — $25,000 MXN/mes" data-en="Américas Apartment — $1,427 USD/mo"></option>
+            <option value="otro" data-es="Otra consulta" data-en="Other inquiry"></option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label data-es="Mensaje" data-en="Message"></label>
+          <textarea name="mensaje" rows="4" required placeholder=" "></textarea>
+        </div>
+        <input type="hidden" name="_subject" value="Nueva consulta — Exclusive Land"/>
+        <button type="submit" class="form-btn">
+          <span data-es="Enviar mensaje" data-en="Send message"></span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <div class="form-success" id="formSuccess" style="display:none">
+          <p data-es="✅ Mensaje enviado — te contactaremos pronto." data-en="✅ Message sent — we'll be in touch soon."></p>
+        </div>
+      </form>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
