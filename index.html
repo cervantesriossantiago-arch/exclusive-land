@@ -666,6 +666,55 @@
         </div>
       </div>
 
+      <!-- Terreno Palo Verde -->
+      <div class="card" data-tipo="terreno">
+        <div class="card-img-wrap">
+          <img src="imagenes/terreno-palo-verde/foto1.jpg" alt="Terreno Palo Verde" loading="lazy" width="400" height="240"/>
+          <div class="card-badge" data-es="En venta" data-en="For sale"></div>
+          <div class="card-overlay"></div>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title" data-es="Terreno Palo Verde" data-en="Palo Verde Land"></h3>
+          <p class="card-location">📍 Centenario, BCS</p>
+          <div class="card-specs">
+            <span class="card-spec" data-es="4 Hectáreas" data-en="4 Hectares"></span>
+            <span class="card-spec" data-es="Vista al mar" data-en="Ocean view"></span>
+            <span class="card-spec" data-es="$1,600/m²" data-en="$1,600/m²"></span>
+            <span class="card-spec" data-es="Por ha o completo" data-en="Per ha or full"></span>
+          </div>
+          <p class="card-price card-price-es">$64,000,000 MXN</p>
+          <p class="card-price card-price-en" style="display:none">$3,655,000 USD</p>
+          <button class="card-btn" onclick="verDetalle('dPaloVerde')">
+            <span data-es="Ver propiedad" data-en="View property"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Terreno Valle Dorado -->
+      <div class="card" data-tipo="terreno">
+        <div class="card-img-wrap">
+          <img src="imagenes/terreno-valle-dorado/foto1.jpg" alt="Terreno Valle Dorado" loading="lazy" width="400" height="240"/>
+          <div class="card-badge" data-es="En venta" data-en="For sale"></div>
+          <div class="card-overlay"></div>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title" data-es="Terreno Valle Dorado" data-en="Valle Dorado Land"></h3>
+          <p class="card-location">📍 Valle Dorado, BCS</p>
+          <div class="card-specs">
+            <span class="card-spec">4,500 m²</span>
+            <span class="card-spec" data-es="$1,200/m²" data-en="$1,200/m²"></span>
+            <span class="card-spec" data-es="Zona en crecimiento" data-en="Growth zone"></span>
+          </div>
+          <p class="card-price card-price-es">$5,400,000 MXN</p>
+          <p class="card-price card-price-en" style="display:none">$308,500 USD</p>
+          <button class="card-btn" onclick="verDetalle('dValleDorado')">
+            <span data-es="Ver propiedad" data-en="View property"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
       <!-- Casa 1 -->
       <div class="card" data-tipo="casa">
         <div class="card-img-wrap">
@@ -753,6 +802,119 @@
   </section>
 
   <!-- ── MODALES ── -->
+
+  <!-- Terreno Palo Verde -->
+  <div class="detail-overlay" id="dPaloVerde">
+    <div class="detail-panel">
+      <button class="detail-close" onclick="cerrarDetalle('dPaloVerde')">✕</button>
+      <p class="detail-label" data-es="Terreno en venta" data-en="Land for sale"></p>
+      <h2 data-es="Terreno Palo Verde" data-en="Palo Verde Land"></h2>
+      <p class="detail-desc" data-es="Terreno de 4 hectáreas con ubicación privilegiada en Centenario, a lado de Palo Verde. Cuenta con espectacular vista al mar, ideal para desarrollo residencial de alto nivel o inversión a largo plazo. Se puede adquirir por hectárea o todo el conjunto."
+         data-en="4-hectare land in a privileged location in Centenario, next to Palo Verde. Features spectacular ocean views, ideal for high-end residential development or long-term investment. Available per hectare or as a whole."></p>
+      <div class="detail-specs-grid">
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Superficie total" data-en="Total area"></div>
+          <div class="detail-spec-value">40,000 m²</div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Hectáreas" data-en="Hectares"></div>
+          <div class="detail-spec-value">4 ha</div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Precio por m²" data-en="Price per m²"></div>
+          <div class="detail-spec-value">$1,600 MXN</div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Vista" data-en="View"></div>
+          <div class="detail-spec-value" data-es="Vista al mar" data-en="Ocean view"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Venta" data-en="Sale"></div>
+          <div class="detail-spec-value" data-es="Por ha o completo" data-en="Per ha or full"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Ubicación" data-en="Location"></div>
+          <div class="detail-spec-value">Centenario, BCS</div>
+        </div>
+      </div>
+      <div class="detail-imgs" id="slider-paloverde">
+        <div class="slider-track">
+          <img src="imagenes/terreno-palo-verde/foto1.jpg" alt="Palo Verde 1"/>
+          <img src="imagenes/terreno-palo-verde/foto2.jpg" alt="Palo Verde 2"/>
+          <img src="imagenes/terreno-palo-verde/foto3.jpg" alt="Palo Verde 3"/>
+          <img src="imagenes/terreno-palo-verde/foto4.jpg" alt="Palo Verde 4"/>
+          <img src="imagenes/terreno-palo-verde/foto5.jpg" alt="Palo Verde 5"/>
+          <img src="imagenes/terreno-palo-verde/foto6.jpg" alt="Palo Verde 6"/>
+        </div>
+        <button class="slider-btn prev" onclick="slideMove('slider-paloverde',-1)">&#8592;</button>
+        <button class="slider-btn next" onclick="slideMove('slider-paloverde',1)">&#8594;</button>
+      </div>
+      <div class="slider-dots" id="dots-slider-paloverde">
+        <button class="slider-dot active"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+      </div>
+      <div class="property-map">
+        <iframe src="https://maps.google.com/maps?q=24.108917,-110.445472&z=16&output=embed"
+          width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+      <p class="detail-price detail-price-es">$64,000,000 MXN <span style="font-size:16px;color:var(--muted)">/ $16,000,000 MXN por ha</span></p>
+      <p class="detail-price detail-price-en" style="display:none">$3,655,000 USD <span style="font-size:16px;color:var(--muted)">/ $913,750 USD per ha</span></p>
+      <a class="detail-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20Terreno%20Palo%20Verde">
+        <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp"></span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Terreno Valle Dorado -->
+  <div class="detail-overlay" id="dValleDorado">
+    <div class="detail-panel">
+      <button class="detail-close" onclick="cerrarDetalle('dValleDorado')">✕</button>
+      <p class="detail-label" data-es="Terreno en venta" data-en="Land for sale"></p>
+      <h2 data-es="Terreno Valle Dorado" data-en="Valle Dorado Land"></h2>
+      <p class="detail-desc" data-es="Terreno de 4,500 m² ubicado en Valle Dorado, una de las zonas de mayor crecimiento en Baja California Sur. Ideal para desarrollo residencial o inversión patrimonial con excelente plusvalía proyectada."
+         data-en="4,500 m² land located in Valle Dorado, one of the fastest-growing areas in Baja California Sur. Ideal for residential development or asset investment with excellent projected appreciation."></p>
+      <div class="detail-specs-grid">
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Superficie" data-en="Area"></div>
+          <div class="detail-spec-value">4,500 m²</div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Precio por m²" data-en="Price per m²"></div>
+          <div class="detail-spec-value">$1,200 MXN</div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Zona" data-en="Zone"></div>
+          <div class="detail-spec-value" data-es="Alto crecimiento" data-en="High growth"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Ubicación" data-en="Location"></div>
+          <div class="detail-spec-value">Valle Dorado, BCS</div>
+        </div>
+      </div>
+      <div class="detail-imgs" id="slider-valledorado">
+        <div class="slider-track">
+          <img src="imagenes/terreno-valle-dorado/foto1.jpg" alt="Valle Dorado"/>
+        </div>
+        <button class="slider-btn prev" onclick="slideMove('slider-valledorado',-1)">&#8592;</button>
+        <button class="slider-btn next" onclick="slideMove('slider-valledorado',1)">&#8594;</button>
+      </div>
+      <div class="slider-dots" id="dots-slider-valledorado">
+        <button class="slider-dot active"></button>
+      </div>
+      <p class="detail-price detail-price-es">$5,400,000 MXN</p>
+      <p class="detail-price detail-price-en" style="display:none">$308,500 USD</p>
+      <a class="detail-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20Terreno%20Valle%20Dorado">
+        <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp"></span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
 
   <!-- Terreno Centenario -->
   <div class="detail-overlay" id="dTerreno">
@@ -1102,7 +1264,7 @@
     const _verDetalle = verDetalle;
     function verDetalle(id) {
       _verDetalle(id);
-      const sliderMap = { dTerreno: 'slider-terreno', dCasa1: 'slider-casa', dDepto: 'slider-depto' };
+      const sliderMap = { dTerreno: 'slider-terreno', dCasa1: 'slider-casa', dDepto: 'slider-depto', dPaloVerde: 'slider-paloverde', dValleDorado: 'slider-valledorado' };
       const sid = sliderMap[id];
       if (sid) {
         sliderState[sid] = 0;
