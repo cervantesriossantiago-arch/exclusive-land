@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Background -->
+  <rect width="512" height="512" fill="#080c14"/>
+  
+  <!-- Outer thin gold circle -->
+  <circle cx="256" cy="256" r="220" fill="none" stroke="#c9a84c" stroke-width="1.5" opacity="0.4"/>
+  
+  <!-- Inner thin gold circle -->
+  <circle cx="256" cy="256" r="190" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.2"/>
+
+  <!-- Main symbol: Abstract land/horizon with diamond -->
+  <!-- Diamond shape (represents premium/land) -->
+  <polygon points="256,120 340,256 256,340 172,256" 
+           fill="none" stroke="#c9a84c" stroke-width="2.5"/>
+  
+  <!-- Inner diamond smaller -->
+  <polygon points="256,160 316,256 256,308 196,256" 
+           fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.4"/>
+
+  <!-- Horizontal line through middle (horizon/land) -->
+  <line x1="172" y1="256" x2="340" y2="256" stroke="#c9a84c" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Center dot -->
+  <circle cx="256" cy="256" r="4" fill="#c9a84c"/>
+
+  <!-- Top dot -->
+  <circle cx="256" cy="120" r="3" fill="#c9a84c"/>
+
+  <!-- Bottom dot -->
+  <circle cx="256" cy="340" r="3" fill="#c9a84c"/>
+
+  <!-- EL letters subtle below symbol -->
+  <text x="256" y="420" 
+        font-family="Georgia, serif" 
+        font-size="32" 
+        font-weight="300"
+        fill="#c9a84c" 
+        text-anchor="middle" 
+        letter-spacing="12"
+        opacity="0.9">EL</text>
+
+  <!-- Thin line under text -->
+  <line x1="216" y1="430" x2="296" y2="430" stroke="#c9a84c" stroke-width="0.8" opacity="0.4"/>
+</svg>
