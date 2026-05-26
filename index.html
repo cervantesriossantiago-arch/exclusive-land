@@ -686,6 +686,35 @@
       .blog-article { padding: 60px 24px; }
     }
 
+    .blog-form {
+      margin-top: 36px; padding: 28px;
+      background: rgba(201,168,76,.05);
+      border: 1px solid rgba(201,168,76,.15);
+      border-radius: 4px;
+    }
+    .blog-form h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; color: var(--white);
+      margin-bottom: 20px; margin-top: 0;
+    }
+    .blog-form-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 12px; margin-bottom: 12px;
+    }
+    .blog-form input, .blog-form textarea {
+      background: var(--bg2);
+      border: 1px solid rgba(201,168,76,.15);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px; font-weight: 300;
+      padding: 12px 14px; border-radius: 2px;
+      outline: none; transition: border-color .25s;
+      width: 100%;
+    }
+    .blog-form input:focus, .blog-form textarea:focus { border-color: var(--gold); }
+    .blog-form textarea { resize: vertical; min-height: 80px; }
+    @media (max-width: 640px) { .blog-form-row { grid-template-columns: 1fr; } }
+
     /* ── Footer ── */
     footer {
       padding: 48px; border-top: 1px solid rgba(201,168,76,.12);
@@ -1473,10 +1502,21 @@
         <p><strong>Contáctanos hoy y te asesoramos sin costo.</strong></p>
       </div>
 
-      <a class="art-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20asesor%C3%ADa%20para%20invertir%20en%20BCS">
-        <span data-es="Solicitar asesoría" data-en="Request consultation"></span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+      <div class="blog-form">
+        <h3 data-es="¿Tienes preguntas? Escríbenos" data-en="Have questions? Contact us"></h3>
+        <form action="https://formspree.io/f/mzdoaepw" method="POST">
+          <input type="hidden" name="origen" value="Blog - Por qué invertir en BCS"/>
+          <div class="blog-form-row">
+            <input type="text" name="nombre" required placeholder="Nombre / Name" />
+            <input type="email" name="email" required placeholder="Email" />
+          </div>
+          <textarea name="mensaje" rows="3" placeholder="Tu pregunta / Your question"></textarea>
+          <button type="submit" class="art-cta" style="border:none; width:100%; justify-content:center; margin-top:12px;">
+            <span data-es="Enviar mensaje" data-en="Send message"></span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </form>
+      </div>
     </div>
   </div>
 
@@ -1524,14 +1564,21 @@
       <p data-es="En Exclusive Land contamos con el respaldo de un despacho jurídico externo especializado en bienes raíces con amplia experiencia en operaciones con inversionistas extranjeros. Nos encargamos de la verificación legal, la constitución del Fideicomiso, la coordinación con el notario y todos los trámites necesarios para que tu compra sea 100% segura y sin sorpresas."
          data-en="At Exclusive Land, we are backed by an external law firm specialized in real estate with extensive experience in transactions with foreign investors. We handle legal verification, Fideicomiso setup, notary coordination, and all necessary procedures so your purchase is 100% secure with no surprises."></p>
 
-      <a class="art-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20asesor%C3%ADa%20legal%20para%20comprar%20en%20M%C3%A9xico">
-        <span data-es="Solicitar asesoría legal" data-en="Request legal consultation"></span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-  </div>
-
-  <!-- Artículo 3 -->
+      <div class="blog-form">
+        <h3 data-es="¿Tienes preguntas legales? Escríbenos" data-en="Have legal questions? Contact us"></h3>
+        <form action="https://formspree.io/f/mzdoaepw" method="POST">
+          <input type="hidden" name="origen" value="Blog - Guía legal para extranjeros"/>
+          <div class="blog-form-row">
+            <input type="text" name="nombre" required placeholder="Nombre / Name" />
+            <input type="email" name="email" required placeholder="Email" />
+          </div>
+          <textarea name="mensaje" rows="3" placeholder="Tu pregunta / Your question"></textarea>
+          <button type="submit" class="art-cta" style="border:none; width:100%; justify-content:center; margin-top:12px;">
+            <span data-es="Enviar mensaje" data-en="Send message"></span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </form>
+      </div>
   <div class="blog-overlay" id="blog3">
     <div class="blog-article">
       <button class="blog-close" onclick="cerrarArticulo('blog3')">✕</button>
@@ -1562,17 +1609,28 @@
       <p data-es="En Exclusive Land, cada terreno de nuestro portafolio ha pasado por una revisión legal exhaustiva a cargo de nuestro despacho externo especializado. Verificamos el título, el uso de suelo, la libertad de gravámenes y todos los aspectos que garantizan que tu inversión sea completamente segura."
          data-en="At Exclusive Land, every property in our portfolio has undergone an exhaustive legal review by our specialized external law firm. We verify the title, land use, liens, and all aspects that ensure your investment is completely secure."></p>
 
-      <a class="art-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20terrenos%20en%20Centenario%20y%20Valle%20Dorado">
-        <span data-es="Ver terrenos disponibles" data-en="View available land"></span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+      <div class="blog-form">
+        <h3 data-es="¿Te interesa algún terreno? Escríbenos" data-en="Interested in any property? Contact us"></h3>
+        <form action="https://formspree.io/f/mzdoaepw" method="POST">
+          <input type="hidden" name="origen" value="Blog - Centenario y Valle Dorado"/>
+          <div class="blog-form-row">
+            <input type="text" name="nombre" required placeholder="Nombre / Name" />
+            <input type="email" name="email" required placeholder="Email" />
+          </div>
+          <textarea name="mensaje" rows="3" placeholder="Tu pregunta / Your question"></textarea>
+          <button type="submit" class="art-cta" style="border:none; width:100%; justify-content:center; margin-top:12px;">
+            <span data-es="Enviar mensaje" data-en="Send message"></span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </form>
+      </div>
     </div>
   </div>
 
   <!-- Footer -->
   <footer>
     <div class="footer-logo">EXCLUSIVE LAND</div>
-    <p data-es="© 2025 · Todos los derechos reservados" data-en="© 2025 · All rights reserved"></p>
+    <p data-es="© 2026 · Todos los derechos reservados" data-en="© 2026 · All rights reserved"></p>
   </footer>
 
   <script>
