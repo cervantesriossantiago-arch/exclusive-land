@@ -574,6 +574,116 @@
     }
     .detail-offer-btn:hover { background: rgba(201,168,76,.1); transform: translateY(-2px); }
 
+    /* ── Blog ── */
+    .blog-section {
+      padding: 100px 48px;
+      background: var(--bg3);
+      border-top: 1px solid rgba(201,168,76,.08);
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .blog-card {
+      background: var(--bg2);
+      border: 1px solid rgba(201,168,76,.1);
+      border-radius: 4px; overflow: hidden;
+      transition: transform .35s ease, box-shadow .35s ease, border-color .35s;
+      cursor: none;
+    }
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px rgba(0,0,0,.4);
+      border-color: rgba(201,168,76,.3);
+    }
+    .blog-card-content { padding: 28px; }
+    .blog-card-tag {
+      font-size: 9px; letter-spacing: .3em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 12px;
+    }
+    .blog-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 400; color: var(--white);
+      line-height: 1.3; margin-bottom: 12px;
+    }
+    .blog-card p {
+      font-size: 12px; line-height: 1.8; color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .blog-card-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 10px; font-weight: 500; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--gold);
+      background: none; border: none; cursor: none;
+      padding: 0; transition: gap .2s;
+    }
+    .blog-card-btn:hover { gap: 14px; }
+    .blog-card-btn svg { width: 12px; height: 12px; }
+
+    .blog-overlay {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: rgba(8,12,20,.97); backdrop-filter: blur(8px);
+      overflow-y: auto;
+    }
+    .blog-overlay.open { display: flex; animation: overlay-in .3s ease; }
+    .blog-article {
+      margin: auto; max-width: 780px; width: 100%;
+      padding: 80px 48px; position: relative;
+    }
+    .blog-close {
+      position: absolute; top: 24px; right: 24px;
+      background: transparent; border: 1px solid rgba(201,168,76,.3);
+      color: var(--gold); font-size: 18px;
+      width: 40px; height: 40px; border-radius: 2px;
+      cursor: none; display: flex; align-items: center; justify-content: center;
+      transition: all .2s;
+    }
+    .blog-close:hover { background: var(--gold); color: var(--bg); }
+    .blog-article .art-tag {
+      font-size: 9px; letter-spacing: .4em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px;
+    }
+    .blog-article h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4vw, 44px); font-weight: 300;
+      color: var(--white); line-height: 1.2; margin-bottom: 12px;
+    }
+    .blog-article .art-fecha {
+      font-size: 11px; color: var(--muted); letter-spacing: .05em;
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid rgba(201,168,76,.12);
+    }
+    .blog-article h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 400; color: var(--gold);
+      margin: 32px 0 12px;
+    }
+    .blog-article p {
+      font-size: 14px; line-height: 1.9; color: rgba(226,224,219,.8);
+      margin-bottom: 16px; letter-spacing: .02em;
+    }
+    .blog-article ul { margin: 12px 0 16px 20px; }
+    .blog-article ul li {
+      font-size: 13px; line-height: 1.8; color: rgba(226,224,219,.7);
+      margin-bottom: 8px;
+    }
+    .blog-article strong { color: var(--white); }
+    .blog-article .art-cta {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--gold); color: var(--bg);
+      font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+      text-decoration: none; padding: 16px 36px; border-radius: 2px;
+      cursor: none; transition: all .25s; margin-top: 20px;
+    }
+    .blog-article .art-cta:hover { background: var(--gold-lt); transform: translateY(-2px); }
+    @media (max-width: 640px) {
+      .blog-section { padding: 70px 24px; }
+      .blog-article { padding: 60px 24px; }
+    }
+
     /* ── Footer ── */
     footer {
       padding: 48px; border-top: 1px solid rgba(201,168,76,.12);
@@ -1283,6 +1393,180 @@
     </div>
   </section>
 
+  <!-- Blog -->
+  <section class="blog-section">
+    <div class="section-header">
+      <p class="section-eyebrow" data-es="Conocimiento e inversión" data-en="Knowledge & investment"></p>
+      <h2><span data-es="Guías y <em>recursos</em> para inversionistas" data-en="Guides & <em>resources</em> for investors"></span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="blog-grid">
+
+      <!-- Artículo 1 -->
+      <div class="blog-card">
+        <div class="blog-card-content">
+          <p class="blog-card-tag" data-es="Inversión · 5 min" data-en="Investment · 5 min"></p>
+          <h3 data-es="¿Por qué invertir en terrenos en Baja California Sur?" data-en="Why Invest in Land in Baja California Sur?"></h3>
+          <p data-es="Plusvalía histórica, demanda internacional y ventajas fiscales. Todo lo que necesitas saber antes de invertir en BCS." data-en="Historical appreciation, international demand, and tax advantages. Everything you need to know before investing in BCS."></p>
+          <button class="blog-card-btn" onclick="abrirArticulo('blog1')">
+            <span data-es="Leer artículo" data-en="Read article"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Artículo 2 -->
+      <div class="blog-card">
+        <div class="blog-card-content">
+          <p class="blog-card-tag" data-es="Legal · 7 min" data-en="Legal · 7 min"></p>
+          <h3 data-es="Guía legal para extranjeros que quieren comprar propiedad en México" data-en="Legal Guide for Foreigners Buying Property in Mexico"></h3>
+          <p data-es="Fideicomiso, impuestos, proceso notarial y todo lo que necesitas saber para comprar con total seguridad jurídica." data-en="Fideicomiso, taxes, notary process, and everything you need to buy with complete legal security."></p>
+          <button class="blog-card-btn" onclick="abrirArticulo('blog2')">
+            <span data-es="Leer artículo" data-en="Read article"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Artículo 3 -->
+      <div class="blog-card">
+        <div class="blog-card-content">
+          <p class="blog-card-tag" data-es="Zonas · 5 min" data-en="Areas · 5 min"></p>
+          <h3 data-es="Centenario y Valle Dorado: las zonas de mayor crecimiento en BCS" data-en="Centenario and Valle Dorado: The Fastest-Growing Areas in BCS"></h3>
+          <p data-es="Infraestructura, plusvalía y aspectos legales del suelo en las zonas más dinámicas de Baja California Sur." data-en="Infrastructure, appreciation, and legal land aspects in the most dynamic areas of Baja California Sur."></p>
+          <button class="blog-card-btn" onclick="abrirArticulo('blog3')">
+            <span data-es="Leer artículo" data-en="Read article"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Blog Article Overlays -->
+
+  <!-- Artículo 1 -->
+  <div class="blog-overlay" id="blog1">
+    <div class="blog-article">
+      <button class="blog-close" onclick="cerrarArticulo('blog1')">✕</button>
+      <p class="art-tag" data-es="Inversión · Mayo 2025 · 5 min de lectura" data-en="Investment · May 2025 · 5 min read"></p>
+      <h2 data-es="¿Por qué invertir en terrenos en Baja California Sur?" data-en="Why Invest in Land in Baja California Sur?"></h2>
+      <p class="art-fecha" data-es="Mayo 2025 · 5 min de lectura" data-en="May 2025 · 5 min read"></p>
+
+      <div data-es-block="1">
+        <p>Baja California Sur se ha convertido en uno de los destinos de inversión inmobiliaria más atractivos de México y de América Latina. Su combinación de clima privilegiado, crecimiento económico sostenido y ubicación estratégica lo posicionan como una oportunidad única para inversionistas nacionales e internacionales.</p>
+        <h3>1. Plusvalía histórica comprobada</h3>
+        <p>En los últimos 10 años, los terrenos en zonas como Centenario, Valle Dorado y Los Cabos han registrado incrementos de valor de entre el 150% y el 300%. Esto significa que una inversión realizada hoy puede triplicar su valor en menos de una década, especialmente en zonas de alto crecimiento como las que manejamos en Exclusive Land.</p>
+        <h3>2. Demanda internacional en constante crecimiento</h3>
+        <p>Baja California Sur recibe miles de turistas e inversionistas extranjeros cada año, principalmente de Estados Unidos y Canadá. Esta demanda sostenida impulsa el valor de las propiedades y garantiza liquidez para quienes deseen vender en el futuro.</p>
+        <h3>3. Infraestructura en expansión</h3>
+        <p>El gobierno federal y estatal han invertido de forma constante en carreteras, servicios y desarrollo urbano en BCS. Zonas que hace 5 años eran periféricas hoy están completamente integradas a La Paz y sus servicios. Centenario y Valle Dorado son ejemplos claros de este fenómeno.</p>
+        <h3>4. Ventajas fiscales de invertir en México</h3>
+        <p>México ofrece condiciones fiscales favorables para la inversión inmobiliaria. Los extranjeros pueden deducir gastos notariales y de escrituración en su declaración fiscal. Además, existen exenciones parciales del ISR en la venta de inmuebles que hayan sido residencia principal. Es importante consultar a un abogado especializado para aprovechar estos beneficios al máximo.</p>
+        <h3>5. Seguridad jurídica garantizada</h3>
+        <p>México cuenta con un sólido sistema de registro de propiedad. Cada terreno debe estar debidamente inscrito en el Registro Público de la Propiedad, contar con título limpio y libre de gravámenes. En Exclusive Land, cada propiedad que ofrecemos ha pasado por un riguroso proceso de verificación legal a cargo de nuestro despacho jurídico externo especializado en bienes raíces.</p>
+        <h3>¿Listo para invertir?</h3>
+        <p>En Exclusive Land contamos con un equipo de profesionales originarios de BCS y el respaldo de un despacho legal externo especializado en propiedades. Nos encargamos de todo el proceso — desde la verificación del título hasta la firma ante notario — para que tu inversión esté blindada desde el primer día.</p>
+        <p><strong>Contáctanos hoy y te asesoramos sin costo.</strong></p>
+      </div>
+
+      <a class="art-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20asesor%C3%ADa%20para%20invertir%20en%20BCS">
+        <span data-es="Solicitar asesoría" data-en="Request consultation"></span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Artículo 2 -->
+  <div class="blog-overlay" id="blog2">
+    <div class="blog-article">
+      <button class="blog-close" onclick="cerrarArticulo('blog2')">✕</button>
+      <p class="art-tag" data-es="Legal · Mayo 2025 · 7 min de lectura" data-en="Legal · May 2025 · 7 min read"></p>
+      <h2 data-es="Guía legal para extranjeros que quieren comprar propiedad en México" data-en="Legal Guide for Foreigners Buying Property in Mexico"></h2>
+      <p class="art-fecha" data-es="Mayo 2025 · 7 min de lectura" data-en="May 2025 · 7 min read"></p>
+
+      <p data-es="Una de las preguntas más frecuentes que recibimos de inversionistas extranjeros es: ¿puedo comprar un terreno o propiedad en México siendo extranjero? La respuesta es sí — y en esta guía te explicamos exactamente cómo funciona el proceso legal, qué impuestos debes considerar y cómo proteger tu inversión."
+         data-en="One of the most common questions we receive from foreign investors is: can I buy land or property in Mexico as a foreigner? The answer is yes — and in this guide we explain exactly how the legal process works, what taxes to consider, and how to protect your investment."></p>
+
+      <h3 data-es="1. ¿Pueden los extranjeros comprar propiedad en México?" data-en="1. Can Foreigners Buy Property in Mexico?"></h3>
+      <p data-es="Sí. La ley mexicana permite a los extranjeros comprar bienes raíces en México. Sin embargo, existe una restricción importante: la llamada Zona Restringida, que comprende los 100 kilómetros a lo largo de las fronteras y los 50 kilómetros a lo largo de las costas. En estas zonas, los extranjeros no pueden ser propietarios directos del suelo — pero sí pueden adquirirlo a través de un mecanismo legal llamado Fideicomiso."
+         data-en="Yes. Mexican law allows foreigners to purchase real estate in Mexico. However, there is one important restriction: the Restricted Zone, which covers 100 kilometers along international borders and 50 kilometers along coastlines. In these areas, foreigners cannot directly own land — but they can acquire it through a legal mechanism called a Fideicomiso (bank trust)."></p>
+
+      <h3 data-es="2. ¿Qué es el Fideicomiso?" data-en="2. What is a Fideicomiso?"></h3>
+      <p data-es="El Fideicomiso es un contrato celebrado ante un banco mexicano autorizado, en el que el banco figura como titular legal del inmueble, pero el extranjero es el beneficiario con todos los derechos de uso, goce y disposición de la propiedad. El extranjero puede vender, rentar, heredar o mejorar la propiedad exactamente como si fuera dueño directo. El Fideicomiso tiene una vigencia inicial de 50 años y es renovable indefinidamente."
+         data-en="A Fideicomiso is a contract established with an authorized Mexican bank, in which the bank holds legal title to the property, while the foreigner is the beneficiary with full rights to use, enjoy, and dispose of the property. The foreigner can sell, rent, inherit, or improve the property exactly as if they were the direct owner. The Fideicomiso has an initial term of 50 years and is renewable indefinitely."></p>
+
+      <h3 data-es="3. ¿Cuánto cuesta el Fideicomiso?" data-en="3. How Much Does a Fideicomiso Cost?"></h3>
+      <p data-es="El costo varía según el banco, pero generalmente incluye una comisión de constitución de entre $500 y $1,000 USD, más una cuota anual de mantenimiento de entre $500 y $800 USD." data-en="Costs vary by bank but generally include a setup fee of $500–$1,000 USD plus an annual maintenance fee of $500–$800 USD."></p>
+
+      <h3 data-es="4. Impuestos al comprar una propiedad en México" data-en="4. Taxes When Buying Property in Mexico"></h3>
+      <ul>
+        <li><strong>ISAI:</strong> <span data-es="2% sobre el valor de la propiedad en La Paz." data-en="2% of the property value in La Paz."></span></li>
+        <li><strong data-es="Honorarios notariales:" data-en="Notary fees:"></strong> <span data-es="aprox. 1% al 2% del valor." data-en="approx. 1%–2% of the property value."></span></li>
+        <li><strong data-es="Gastos de escrituración:" data-en="Closing costs:"></strong> <span data-es="aprox. 0.5% del valor." data-en="approx. 0.5% of the value."></span></li>
+        <li><strong>IVA:</strong> <span data-es="puede aplicar sobre honorarios notariales." data-en="may apply to notary fees."></span></li>
+      </ul>
+
+      <h3 data-es="5. Proceso legal paso a paso" data-en="5. Legal Process Step by Step"></h3>
+      <ul>
+        <li><strong data-es="Paso 1:" data-en="Step 1:"></strong> <span data-es="Verificación legal del inmueble (título, gravámenes, uso de suelo)" data-en="Legal verification of the property (title, liens, land use)"></span></li>
+        <li><strong data-es="Paso 2:" data-en="Step 2:"></strong> <span data-es="Firma de promesa de compraventa con depósito en garantía" data-en="Signing of the purchase agreement with security deposit"></span></li>
+        <li><strong data-es="Paso 3:" data-en="Step 3:"></strong> <span data-es="Apertura del Fideicomiso (si aplica)" data-en="Fideicomiso setup (if applicable)"></span></li>
+        <li><strong data-es="Paso 4:" data-en="Step 4:"></strong> <span data-es="Firma de escritura ante notario público" data-en="Signing of deed before a notary public"></span></li>
+        <li><strong data-es="Paso 5:" data-en="Step 5:"></strong> <span data-es="Inscripción en el Registro Público de la Propiedad" data-en="Registration with the Public Registry of Property"></span></li>
+        <li><strong data-es="Paso 6:" data-en="Step 6:"></strong> <span data-es="Entrega física del inmueble" data-en="Physical delivery of the property"></span></li>
+      </ul>
+
+      <h3 data-es="Nosotros lo hacemos por ti" data-en="We Handle Everything for You"></h3>
+      <p data-es="En Exclusive Land contamos con el respaldo de un despacho jurídico externo especializado en bienes raíces con amplia experiencia en operaciones con inversionistas extranjeros. Nos encargamos de la verificación legal, la constitución del Fideicomiso, la coordinación con el notario y todos los trámites necesarios para que tu compra sea 100% segura y sin sorpresas."
+         data-en="At Exclusive Land, we are backed by an external law firm specialized in real estate with extensive experience in transactions with foreign investors. We handle legal verification, Fideicomiso setup, notary coordination, and all necessary procedures so your purchase is 100% secure with no surprises."></p>
+
+      <a class="art-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20asesor%C3%ADa%20legal%20para%20comprar%20en%20M%C3%A9xico">
+        <span data-es="Solicitar asesoría legal" data-en="Request legal consultation"></span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Artículo 3 -->
+  <div class="blog-overlay" id="blog3">
+    <div class="blog-article">
+      <button class="blog-close" onclick="cerrarArticulo('blog3')">✕</button>
+      <p class="art-tag" data-es="Zonas · Mayo 2025 · 5 min de lectura" data-en="Areas · May 2025 · 5 min read"></p>
+      <h2 data-es="Centenario y Valle Dorado: las zonas de mayor crecimiento en BCS" data-en="Centenario and Valle Dorado: The Fastest-Growing Areas in BCS"></h2>
+      <p class="art-fecha" data-es="Mayo 2025 · 5 min de lectura" data-en="May 2025 · 5 min read"></p>
+
+      <p data-es="Si estás buscando invertir en bienes raíces en Baja California Sur, dos nombres debes tener muy presentes: Centenario y Valle Dorado. Estas zonas se han consolidado como los polos de desarrollo más dinámicos del estado, con plusvalía acelerada y demanda creciente tanto de residentes locales como de inversionistas foráneos."
+         data-en="If you're looking to invest in real estate in Baja California Sur, two names you need to know are Centenario and Valle Dorado. These areas have established themselves as the most dynamic development hubs in the state — with accelerating property values and growing demand from both local residents and foreign investors."></p>
+
+      <h3 data-es="Centenario: ubicación privilegiada con vista al mar" data-en="Centenario: Privileged Location with Ocean Views"></h3>
+      <p data-es="El municipio de Centenario se encuentra a tan solo 15 minutos de La Paz, sobre la carretera transpeninsular. En los últimos años ha experimentado un crecimiento acelerado en infraestructura: nuevas vialidades, servicios de agua, luz y drenaje han llegado a zonas que antes eran completamente rurales. Esto ha disparado el valor de los terrenos, especialmente aquellos con vista al mar o doble acceso vial."
+         data-en="Centenario is located just 15 minutes from La Paz along the Transpeninsular Highway. In recent years, it has experienced rapid infrastructure growth: new roads, water, electricity, and drainage services have reached areas that were once entirely rural. This has driven land values sharply upward — especially for properties with ocean views or dual road access."></p>
+
+      <h3 data-es="Valle Dorado: la nueva zona residencial de La Paz" data-en="Valle Dorado: La Paz's New Residential Zone"></h3>
+      <p data-es="Valle Dorado es una de las colonias de mayor crecimiento residencial en La Paz. Su ubicación céntrica y la consolidación de servicios la han convertido en una opción muy atractiva para familias y desarrolladores. La demanda de terrenos supera con creces la oferta disponible, lo que garantiza una plusvalía sostenida."
+         data-en="Valle Dorado is one of the fastest-growing residential areas in La Paz. Its central location and consolidated services have made it highly attractive for families and developers. Demand for land far exceeds available supply, ensuring sustained appreciation."></p>
+
+      <h3 data-es="Aspectos legales del suelo que debes conocer" data-en="Legal Aspects of Land You Should Know"></h3>
+      <ul>
+        <li><strong data-es="Uso de suelo:" data-en="Land use permit:"></strong> <span data-es="verificar que corresponda al proyecto deseado." data-en="confirm it matches your intended project."></span></li>
+        <li><strong data-es="Título de propiedad:" data-en="Title deed:"></strong> <span data-es="escritura pública inscrita en el Registro Público." data-en="public deed registered with the Public Registry."></span></li>
+        <li><strong data-es="Libertad de gravámenes:" data-en="Free of liens:"></strong> <span data-es="sin hipotecas ni embargos pendientes." data-en="no mortgages or attachments pending."></span></li>
+        <li><strong data-es="Régimen de propiedad:" data-en="Property regime:"></strong> <span data-es="distinguir si es privado, ejidal o comunal." data-en="distinguish whether private, ejidal, or communal."></span></li>
+      </ul>
+
+      <h3 data-es="Nosotros verificamos todo por ti" data-en="We Verify Everything for You"></h3>
+      <p data-es="En Exclusive Land, cada terreno de nuestro portafolio ha pasado por una revisión legal exhaustiva a cargo de nuestro despacho externo especializado. Verificamos el título, el uso de suelo, la libertad de gravámenes y todos los aspectos que garantizan que tu inversión sea completamente segura."
+         data-en="At Exclusive Land, every property in our portfolio has undergone an exhaustive legal review by our specialized external law firm. We verify the title, land use, liens, and all aspects that ensure your investment is completely secure."></p>
+
+      <a class="art-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20terrenos%20en%20Centenario%20y%20Valle%20Dorado">
+        <span data-es="Ver terrenos disponibles" data-en="View available land"></span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer>
     <div class="footer-logo">EXCLUSIVE LAND</div>
@@ -1318,6 +1602,21 @@
         }
       }
     }
+
+    /* ── Blog ── */
+    function abrirArticulo(id) {
+      document.getElementById(id).classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function cerrarArticulo(id) {
+      document.getElementById(id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.blog-overlay').forEach(overlay => {
+      overlay.addEventListener('click', e => {
+        if (e.target === overlay) cerrarArticulo(overlay.id);
+      });
+    });
 
     /* ── Cursor ── */
     const cur = document.getElementById('cursor');
