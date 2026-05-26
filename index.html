@@ -688,9 +688,10 @@
             <span data-es="Ver propiedad" data-en="View property"></span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
-          <a class="card-btn-offer" href="https://wa.me/526121560921?text=Hola,%20quiero%20hacer%20una%20oferta%20por%20el%20Terreno%20Centenario">
-            <span data-es="Hacer una oferta" data-en="Make an offer"></span>
-          </a>
+        </div>
+      </div>
+
+      <!-- Terreno Palo Verde -->
       <div class="card" data-tipo="terreno">
         <div class="card-img-wrap">
           <img src="imagenes/terreno-palo-verde/foto1.jpg" alt="Terreno Palo Verde" loading="lazy" width="400" height="240"/>
@@ -712,9 +713,10 @@
             <span data-es="Ver propiedad" data-en="View property"></span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
-          <a class="card-btn-offer" href="https://wa.me/526121560921?text=Hola,%20quiero%20hacer%20una%20oferta%20por%20el%20Terreno%20Palo%20Verde">
-            <span data-es="Hacer una oferta" data-en="Make an offer"></span>
-          </a>
+        </div>
+      </div>
+
+      <!-- Terreno Valle Dorado -->
       <div class="card" data-tipo="terreno">
         <div class="card-img-wrap">
           <img src="imagenes/terreno-valle-dorado/foto1.jpg" alt="Terreno Valle Dorado" loading="lazy" width="400" height="240"/>
@@ -735,9 +737,10 @@
             <span data-es="Ver propiedad" data-en="View property"></span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
-          <a class="card-btn-offer" href="https://wa.me/526121560921?text=Hola,%20quiero%20hacer%20una%20oferta%20por%20el%20Terreno%20Valle%20Dorado">
-            <span data-es="Hacer una oferta" data-en="Make an offer"></span>
-          </a>
+        </div>
+      </div>
+
+      <!-- Casa 1 -->
       <div class="card" data-tipo="casa">
         <div class="card-img-wrap">
           <img src="imagenes/casa-adrian-martinez/foto1.jpg" alt="Casa Residencial" loading="lazy" width="400" height="240"/>
@@ -759,9 +762,10 @@
             <span data-es="Ver propiedad" data-en="View property"></span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
-          <a class="card-btn-offer" href="https://wa.me/526121560921?text=Hola,%20quiero%20hacer%20una%20oferta%20por%20la%20Casa%20Residencial">
-            <span data-es="Hacer una oferta" data-en="Make an offer"></span>
-          </a>
+        </div>
+      </div>
+
+      <!-- Depto Renta -->
       <div class="card" data-tipo="renta">
         <div class="card-img-wrap">
           <img src="imagenes/depto-americas/foto1.jpg" alt="Departamento en Renta" loading="lazy" width="400" height="240"/>
@@ -779,6 +783,15 @@
           </div>
           <p class="card-price card-price-es">$25,000 MXN / mes</p>
           <p class="card-price card-price-en" style="display:none">$1,427 USD / mo</p>
+          <button class="card-btn" onclick="verDetalle('dDepto')">
+            <span data-es="Ver propiedad" data-en="View property"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
           <button class="card-btn" onclick="verDetalle('dDepto')">
             <span data-es="Ver propiedad" data-en="View property"></span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -881,12 +894,17 @@
           width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy">
         </iframe>
       </div>
-      <p class="detail-price detail-price-es">$64,000,000 MXN <span style="font-size:16px;color:var(--muted)">/ $16,000,000 MXN por ha</span></p>
-      <p class="detail-price detail-price-en" style="display:none">$3,655,000 USD <span style="font-size:16px;color:var(--muted)">/ $913,750 USD per ha</span></p>
-      <a class="detail-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20Terreno%20Palo%20Verde">
-        <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp"></span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+      <p class="detail-price detail-price-es">$16,000,000 MXN <span style="font-size:16px;color:var(--muted)">/ ha</span></p>
+      <p class="detail-price detail-price-en" style="display:none">$913,750 USD <span style="font-size:16px;color:var(--muted)">/ ha</span></p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="detail-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20Terreno%20Palo%20Verde">
+          <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp"></span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="detail-offer-btn" href="https://wa.me/526121560921?text=Hola,%20quiero%20hacer%20una%20oferta%20por%20el%20Terreno%20Palo%20Verde">
+          <span data-es="Hacer una oferta" data-en="Make an offer"></span>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -928,10 +946,15 @@
       </div>
       <p class="detail-price detail-price-es">$5,400,000 MXN</p>
       <p class="detail-price detail-price-en" style="display:none">$308,500 USD</p>
-      <a class="detail-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20Terreno%20Valle%20Dorado">
-        <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp"></span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="detail-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20Terreno%20Valle%20Dorado">
+          <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp"></span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="detail-offer-btn" href="https://wa.me/526121560921?text=Hola,%20quiero%20hacer%20una%20oferta%20por%20el%20Terreno%20Valle%20Dorado">
+          <span data-es="Hacer una oferta" data-en="Make an offer"></span>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -979,10 +1002,15 @@
       </div>
       <p class="detail-price detail-price-es">$15,000,000 MXN</p>
       <p class="detail-price detail-price-en" style="display:none">$856,000 USD</p>
-      <a class="detail-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20Terreno%20Centenario">
-        <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp"></span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="detail-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20Terreno%20Centenario">
+          <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp"></span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="detail-offer-btn" href="https://wa.me/526121560921?text=Hola,%20quiero%20hacer%20una%20oferta%20por%20el%20Terreno%20Centenario">
+          <span data-es="Hacer una oferta" data-en="Make an offer"></span>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -1044,10 +1072,15 @@
       </div>
       <p class="detail-price detail-price-es">$6,500,000 MXN</p>
       <p class="detail-price detail-price-en" style="display:none">$371,000 USD</p>
-      <a class="detail-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20la%20Casa%20Residencial">
-        <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp"></span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="detail-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20la%20Casa%20Residencial">
+          <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp"></span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="detail-offer-btn" href="https://wa.me/526121560921?text=Hola,%20quiero%20hacer%20una%20oferta%20por%20la%20Casa%20Residencial">
+          <span data-es="Hacer una oferta" data-en="Make an offer"></span>
+        </a>
+      </div>
     </div>
   </div>
 
