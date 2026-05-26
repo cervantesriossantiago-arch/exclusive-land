@@ -552,6 +552,28 @@
       .form-row { grid-template-columns: 1fr; }
     }
 
+    .card-btn-offer {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: transparent; border: 1px solid rgba(201,168,76,.2);
+      color: var(--muted); font-family: 'Montserrat', sans-serif;
+      font-size: 10px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase;
+      padding: 10px 22px; border-radius: 2px; cursor: none; transition: all .25s;
+      width: 100%; justify-content: center; margin-top: 8px;
+      text-decoration: none;
+    }
+    .card-btn-offer:hover { border-color: rgba(201,168,76,.5); color: var(--gold); }
+
+    .detail-offer-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: transparent;
+      border: 1px solid rgba(201,168,76,.4);
+      color: var(--gold);
+      font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+      text-decoration: none; padding: 16px 36px; border-radius: 2px;
+      cursor: none; transition: all .25s; margin-left: 16px;
+    }
+    .detail-offer-btn:hover { background: rgba(201,168,76,.1); transform: translateY(-2px); }
+
     /* ── Footer ── */
     footer {
       padding: 48px; border-top: 1px solid rgba(201,168,76,.12);
@@ -666,10 +688,9 @@
             <span data-es="Ver propiedad" data-en="View property"></span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
-        </div>
-      </div>
-
-      <!-- Terreno Palo Verde -->
+          <a class="card-btn-offer" href="https://wa.me/526121560921?text=Hola,%20quiero%20hacer%20una%20oferta%20por%20el%20Terreno%20Centenario">
+            <span data-es="Hacer una oferta" data-en="Make an offer"></span>
+          </a>
       <div class="card" data-tipo="terreno">
         <div class="card-img-wrap">
           <img src="imagenes/terreno-palo-verde/foto1.jpg" alt="Terreno Palo Verde" loading="lazy" width="400" height="240"/>
@@ -685,16 +706,15 @@
             <span class="card-spec" data-es="$1,600/m²" data-en="$1,600/m²"></span>
             <span class="card-spec" data-es="Por ha o completo" data-en="Per ha or full"></span>
           </div>
-          <p class="card-price card-price-es">$64,000,000 MXN</p>
-          <p class="card-price card-price-en" style="display:none">$3,655,000 USD</p>
+          <p class="card-price card-price-es">$16,000,000 MXN <span style="font-size:13px;color:var(--muted)">/ ha</span></p>
+          <p class="card-price card-price-en" style="display:none">$913,750 USD <span style="font-size:13px;color:var(--muted)">/ ha</span></p>
           <button class="card-btn" onclick="verDetalle('dPaloVerde')">
             <span data-es="Ver propiedad" data-en="View property"></span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
-        </div>
-      </div>
-
-      <!-- Terreno Valle Dorado -->
+          <a class="card-btn-offer" href="https://wa.me/526121560921?text=Hola,%20quiero%20hacer%20una%20oferta%20por%20el%20Terreno%20Palo%20Verde">
+            <span data-es="Hacer una oferta" data-en="Make an offer"></span>
+          </a>
       <div class="card" data-tipo="terreno">
         <div class="card-img-wrap">
           <img src="imagenes/terreno-valle-dorado/foto1.jpg" alt="Terreno Valle Dorado" loading="lazy" width="400" height="240"/>
@@ -715,10 +735,9 @@
             <span data-es="Ver propiedad" data-en="View property"></span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
-        </div>
-      </div>
-
-      <!-- Casa 1 -->
+          <a class="card-btn-offer" href="https://wa.me/526121560921?text=Hola,%20quiero%20hacer%20una%20oferta%20por%20el%20Terreno%20Valle%20Dorado">
+            <span data-es="Hacer una oferta" data-en="Make an offer"></span>
+          </a>
       <div class="card" data-tipo="casa">
         <div class="card-img-wrap">
           <img src="imagenes/casa-adrian-martinez/foto1.jpg" alt="Casa Residencial" loading="lazy" width="400" height="240"/>
@@ -740,12 +759,9 @@
             <span data-es="Ver propiedad" data-en="View property"></span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
-        </div>
-      </div>
-
-
-
-      <!-- Depto Renta -->
+          <a class="card-btn-offer" href="https://wa.me/526121560921?text=Hola,%20quiero%20hacer%20una%20oferta%20por%20la%20Casa%20Residencial">
+            <span data-es="Hacer una oferta" data-en="Make an offer"></span>
+          </a>
       <div class="card" data-tipo="renta">
         <div class="card-img-wrap">
           <img src="imagenes/depto-americas/foto1.jpg" alt="Departamento en Renta" loading="lazy" width="400" height="240"/>
