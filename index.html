@@ -576,8 +576,69 @@
     }
     .detail-offer-btn:hover { background: rgba(201,168,76,.1); transform: translateY(-2px); }
 
-    /* ── Blog ── */
-    .blog-section {
+    /* ── Sold card ── */
+    .card-sold { opacity: .85; }
+    .card-badge-sold { background: #4a4a4a !important; }
+    .sold-overlay {
+      position: absolute; inset: 0;
+      background: rgba(8,12,20,.55);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .sold-overlay span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px; font-weight: 300; letter-spacing: .3em;
+      color: rgba(255,255,255,.7);
+      border: 1px solid rgba(255,255,255,.3);
+      padding: 8px 24px;
+    }
+    .sold-text {
+      font-size: 11px; line-height: 1.7; color: var(--muted);
+      font-style: italic; margin-top: 8px;
+    }
+
+    /* ── Testimonials ── */
+    .testimonial-section {
+      padding: 100px 48px;
+      background: var(--bg2);
+      border-top: 1px solid rgba(201,168,76,.08);
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .testimonial-card {
+      background: var(--bg);
+      border: 1px solid rgba(201,168,76,.15);
+      border-radius: 4px;
+      padding: 36px 32px;
+      position: relative;
+    }
+    .testimonial-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px; line-height: 1;
+      color: var(--gold); opacity: .3;
+      position: absolute; top: 16px; left: 24px;
+    }
+    .testimonial-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px; font-weight: 300; line-height: 1.7;
+      color: var(--white); font-style: italic;
+      margin-bottom: 24px; margin-top: 16px;
+    }
+    .testimonial-divider { width: 32px; height: 1px; background: var(--gold); margin-bottom: 16px; }
+    .testimonial-meta { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); }
+    .testimonial-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .testimonial-tag {
+      font-size: 9px; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--gold); background: rgba(201,168,76,.08);
+      border: 1px solid rgba(201,168,76,.2);
+      padding: 4px 10px; border-radius: 2px;
+    }
+
+    /* ── Blog (1) ── */
       padding: 100px 48px;
       background: var(--bg3);
       border-top: 1px solid rgba(201,168,76,.08);
@@ -823,8 +884,8 @@
             <span class="card-spec" data-es="Doble acceso" data-en="Dual access"></span>
             <span class="card-spec">CP 23205</span>
           </div>
-          <p class="card-price card-price-es">$15,000,000 MXN</p>
-          <p class="card-price card-price-en" style="display:none">$856,000 USD</p>
+          <p class="card-price card-price-es">$13,000,000 MXN</p>
+          <p class="card-price card-price-en" style="display:none">$742,000 USD</p>
           <button class="card-btn" onclick="verDetalle('dTerreno')">
             <span data-es="Ver propiedad" data-en="View property"></span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -832,12 +893,15 @@
         </div>
       </div>
 
-      <!-- Terreno Palo Verde -->
-      <div class="card" data-tipo="terreno">
+      <!-- Terreno Palo Verde — VENDIDO -->
+      <div class="card card-sold" data-tipo="terreno">
         <div class="card-img-wrap">
           <img src="imagenes/terreno-palo-verde/foto1.jpg" alt="Terreno Palo Verde" loading="lazy" width="400" height="240"/>
-          <div class="card-badge" data-es="En venta" data-en="For sale"></div>
+          <div class="card-badge card-badge-sold" data-es="Vendido" data-en="Sold"></div>
           <div class="card-overlay"></div>
+          <div class="sold-overlay">
+            <span data-es="VENDIDO" data-en="SOLD"></span>
+          </div>
         </div>
         <div class="card-content">
           <h3 class="card-title" data-es="Terreno Palo Verde" data-en="Palo Verde Land"></h3>
@@ -845,15 +909,12 @@
           <div class="card-specs">
             <span class="card-spec" data-es="4 Hectáreas" data-en="4 Hectares"></span>
             <span class="card-spec" data-es="Vista al mar" data-en="Ocean view"></span>
-            <span class="card-spec" data-es="$1,600/m²" data-en="$1,600/m²"></span>
-            <span class="card-spec" data-es="Por ha o completo" data-en="Per ha or full"></span>
+            <span class="card-spec" data-es="Compra de contado" data-en="Cash purchase"></span>
+            <span class="card-spec" data-es="Fideicomiso incluido" data-en="Fideicomiso included"></span>
           </div>
-          <p class="card-price card-price-es">$16,000,000 MXN <span style="font-size:13px;color:var(--muted)">/ ha</span></p>
-          <p class="card-price card-price-en" style="display:none">$913,750 USD <span style="font-size:13px;color:var(--muted)">/ ha</span></p>
-          <button class="card-btn" onclick="verDetalle('dPaloVerde')">
-            <span data-es="Ver propiedad" data-en="View property"></span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
+          <p class="card-price card-price-es" style="color:var(--muted)">$16,000,000 MXN / ha</p>
+          <p class="card-price card-price-en" style="display:none;color:var(--muted)">$913,750 USD / ha</p>
+          <p class="sold-text" data-es="Esta propiedad ya fue vendida. Contáctanos para conocer opciones similares." data-en="This property has been sold. Contact us for similar options."></p>
         </div>
       </div>
 
@@ -882,6 +943,31 @@
       </div>
 
       <!-- Casa 1 -->
+      <div class="card" data-tipo="terreno">
+        <div class="card-img-wrap">
+          <img src="imagenes/terreno-centenario2/foto1.jpg" alt="Terreno Centenario Calle 17" loading="lazy" width="400" height="240"/>
+          <div class="card-badge" data-es="En venta" data-en="For sale"></div>
+          <div class="card-overlay"></div>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title" data-es="Terreno Centenario Calle 17" data-en="Centenario Calle 17 Land"></h3>
+          <p class="card-location">📍 Calle 17 y 18, Centenario — BCS</p>
+          <div class="card-specs">
+            <span class="card-spec">1,470 m²</span>
+            <span class="card-spec" data-es="De calle a calle" data-en="Street to street"></span>
+            <span class="card-spec" data-es="$1,632/m²" data-en="$1,632/m²"></span>
+            <span class="card-spec" data-es="Terreno baldío" data-en="Vacant land"></span>
+          </div>
+          <p class="card-price card-price-es">$2,400,000 MXN</p>
+          <p class="card-price card-price-en" style="display:none">$137,000 USD</p>
+          <button class="card-btn" onclick="verDetalle('dCentenarioCalle17')">
+            <span data-es="Ver propiedad" data-en="View property"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Casa Residencial -->
       <div class="card" data-tipo="casa">
         <div class="card-img-wrap">
           <img src="imagenes/casa-adrian-martinez/foto1.jpg" alt="Casa Residencial" loading="lazy" width="400" height="240"/>
@@ -1068,13 +1154,24 @@
       </div>
       <div class="detail-imgs" id="slider-valledorado">
         <div class="slider-track">
-          <img src="imagenes/terreno-valle-dorado/foto1.jpg" alt="Valle Dorado"/>
+          <img src="imagenes/terreno-valle-dorado/foto1.jpg" alt="Valle Dorado 1"/>
+          <img src="imagenes/terreno-valle-dorado/foto2.jpg" alt="Valle Dorado 2"/>
+          <img src="imagenes/terreno-valle-dorado/foto3.jpg" alt="Valle Dorado 3"/>
+          <img src="imagenes/terreno-valle-dorado/foto4.jpg" alt="Valle Dorado 4"/>
         </div>
         <button class="slider-btn prev" onclick="slideMove('slider-valledorado',-1)">&#8592;</button>
         <button class="slider-btn next" onclick="slideMove('slider-valledorado',1)">&#8594;</button>
       </div>
       <div class="slider-dots" id="dots-slider-valledorado">
         <button class="slider-dot active"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+      </div>
+      <div class="property-map">
+        <iframe src="https://maps.google.com/maps?q=24.073717,-110.329636&z=16&output=embed"
+          width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
       </div>
       <p class="detail-price detail-price-es">$5,400,000 MXN</p>
       <p class="detail-price detail-price-en" style="display:none">$308,500 USD</p>
@@ -1084,6 +1181,68 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <a class="detail-offer-btn" href="https://wa.me/526121560921?text=Hola,%20quiero%20hacer%20una%20oferta%20por%20el%20Terreno%20Valle%20Dorado">
+          <span data-es="Hacer una oferta" data-en="Make an offer"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Terreno Centenario Calle 17 -->
+  <div class="detail-overlay" id="dCentenarioCalle17">
+    <div class="detail-panel">
+      <button class="detail-close" onclick="cerrarDetalle('dCentenarioCalle17')">✕</button>
+      <p class="detail-label" data-es="Terreno en venta" data-en="Land for sale"></p>
+      <h2 data-es="Terreno Centenario Calle 17" data-en="Centenario Calle 17 Land"></h2>
+      <p class="detail-desc" data-es="Terreno baldío de 1,470 m² ubicado en Centenario, de calle a calle entre Calle 17 y Calle 18. Excelente ubicación para desarrollo residencial o inversión en una de las zonas de mayor crecimiento de BCS."
+         data-en="1,470 m² vacant land in Centenario, running street to street between Calle 17 and Calle 18. Excellent location for residential development or investment in one of BCS's fastest-growing areas."></p>
+      <div class="detail-specs-grid">
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Superficie" data-en="Area"></div>
+          <div class="detail-spec-value">1,470 m²</div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Precio por m²" data-en="Price per m²"></div>
+          <div class="detail-spec-value">$1,632 MXN</div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Acceso" data-en="Access"></div>
+          <div class="detail-spec-value" data-es="De calle a calle" data-en="Street to street"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Tipo" data-en="Type"></div>
+          <div class="detail-spec-value" data-es="Terreno baldío" data-en="Vacant land"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Calles" data-en="Streets"></div>
+          <div class="detail-spec-value">Calle 17 y 18</div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Ubicación" data-en="Location"></div>
+          <div class="detail-spec-value">Centenario, BCS</div>
+        </div>
+      </div>
+      <div class="detail-imgs" id="slider-calle17">
+        <div class="slider-track">
+          <img src="imagenes/terreno-centenario2/foto1.jpg" alt="Terreno Calle 17 1"/>
+          <img src="imagenes/terreno-centenario2/foto2.jpg" alt="Terreno Calle 17 2"/>
+          <img src="imagenes/terreno-centenario2/foto3.jpg" alt="Terreno Calle 17 3"/>
+        </div>
+        <button class="slider-btn prev" onclick="slideMove('slider-calle17',-1)">&#8592;</button>
+        <button class="slider-btn next" onclick="slideMove('slider-calle17',1)">&#8594;</button>
+      </div>
+      <div class="slider-dots" id="dots-slider-calle17">
+        <button class="slider-dot active"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+      </div>
+      <p class="detail-price detail-price-es">$2,400,000 MXN</p>
+      <p class="detail-price detail-price-en" style="display:none">$137,000 USD</p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="detail-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20Terreno%20Centenario%20Calle%2017">
+          <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp"></span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="detail-offer-btn" href="https://wa.me/526121560921?text=Hola,%20quiero%20hacer%20una%20oferta%20por%20el%20Terreno%20Centenario%20Calle%2017">
           <span data-es="Hacer una oferta" data-en="Make an offer"></span>
         </a>
       </div>
@@ -1132,8 +1291,8 @@
           width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy">
         </iframe>
       </div>
-      <p class="detail-price detail-price-es">$15,000,000 MXN</p>
-      <p class="detail-price detail-price-en" style="display:none">$856,000 USD</p>
+      <p class="detail-price detail-price-es">$13,000,000 MXN</p>
+      <p class="detail-price detail-price-en" style="display:none">$742,000 USD</p>
       <div style="display:flex; gap:12px; flex-wrap:wrap;">
         <a class="detail-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20Terreno%20Centenario">
           <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp"></span>
@@ -1424,6 +1583,32 @@
     </div>
   </section>
 
+  <!-- Testimonios -->
+  <section class="testimonial-section">
+    <div class="section-header">
+      <p class="section-eyebrow" data-es="Clientes satisfechos" data-en="Satisfied clients"></p>
+      <h2><span data-es="Operaciones <em>concluidas</em> con éxito" data-en="Successfully <em>closed</em> transactions"></span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="testimonial-grid">
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text" data-es="El proceso fue completamente transparente y profesional. Desde la verificación legal hasta la firma ante notario, todo estuvo perfectamente coordinado. Invertir en BCS a través de Exclusive Land fue la mejor decisión que tomé."
+           data-en="The process was completely transparent and professional. From legal verification to the notary signing, everything was perfectly coordinated. Investing in BCS through Exclusive Land was the best decision I made."></p>
+        <div class="testimonial-divider"></div>
+        <p class="testimonial-meta" data-es="Cliente internacional — Terreno Palo Verde, Centenario" data-en="International client — Palo Verde Land, Centenario"></p>
+        <div class="testimonial-tags">
+          <span class="testimonial-tag" data-es="Compra de contado" data-en="Cash purchase"></span>
+          <span class="testimonial-tag">Fideicomiso</span>
+          <span class="testimonial-tag" data-es="4 Hectáreas" data-en="4 Hectares"></span>
+          <span class="testimonial-tag" data-es="Vista al mar" data-en="Ocean view"></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- Blog -->
   <section class="blog-section">
     <div class="section-header">
@@ -1655,7 +1840,7 @@
     const _verDetalle = verDetalle;
     function verDetalle(id) {
       _verDetalle(id);
-      const sliderMap = { dTerreno: 'slider-terreno', dCasa1: 'slider-casa', dDepto: 'slider-depto', dPaloVerde: 'slider-paloverde', dValleDorado: 'slider-valledorado' };
+      const sliderMap = { dTerreno: 'slider-terreno', dCasa1: 'slider-casa', dDepto: 'slider-depto', dPaloVerde: 'slider-paloverde', dValleDorado: 'slider-valledorado', dCentenarioCalle17: 'slider-calle17' };
       const sid = sliderMap[id];
       if (sid) {
         sliderState[sid] = 0;
