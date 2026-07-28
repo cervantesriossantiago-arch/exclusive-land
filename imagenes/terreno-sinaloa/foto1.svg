@@ -1,0 +1,45 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#080c14"/>
+    </linearGradient>
+    <linearGradient id="hillsFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2233"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="hillsNear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1220"/>
+      <stop offset="100%" stop-color="#080c14"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#sky)"/>
+  <!-- gold sun -->
+  <circle cx="640" cy="150" r="70" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.5"/>
+  <circle cx="640" cy="150" r="46" fill="#c9a84c" opacity="0.14"/>
+  <!-- far hills -->
+  <path d="M0,300 Q150,240 320,285 T650,270 T800,300 V500 H0 Z" fill="url(#hillsFar)"/>
+  <!-- mid hills with gold contour line -->
+  <path d="M0,360 Q180,300 380,345 T800,330 V500 H0 Z" fill="#0d1220"/>
+  <path d="M0,360 Q180,300 380,345 T800,330" fill="none" stroke="#c9a84c" stroke-width="1.5" opacity="0.6"/>
+  <!-- near terrain -->
+  <path d="M0,430 Q220,390 400,415 T800,400 V500 H0 Z" fill="url(#hillsNear)"/>
+  <path d="M0,430 Q220,390 400,415 T800,400" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.4"/>
+  <!-- road -->
+  <path d="M330,500 L390,415 L410,415 L470,500 Z" fill="#111827" opacity="0.9"/>
+  <path d="M400,500 L400,415" stroke="#c9a84c" stroke-width="1" stroke-dasharray="4 6" opacity="0.5"/>
+  <!-- scattered brush marks -->
+  <g stroke="#c9a84c" stroke-width="1" opacity="0.35">
+    <path d="M120,440 q6,-16 12,0"/>
+    <path d="M180,455 q6,-14 12,0"/>
+    <path d="M560,445 q6,-16 12,0"/>
+    <path d="M640,460 q6,-14 12,0"/>
+    <path d="M240,470 q6,-12 12,0"/>
+    <path d="M700,470 q6,-12 12,0"/>
+  </g>
+  <!-- subtle plot outline -->
+  <polygon points="90,470 250,420 470,430 430,480" fill="none" stroke="#e8d08a" stroke-width="1.5" stroke-dasharray="6 5" opacity="0.55"/>
+  <!-- label -->
+  <text x="400" y="60" text-anchor="middle" font-family="Georgia, 'Cormorant Garamond', serif" font-size="26" letter-spacing="4" fill="#e8d08a" opacity="0.9">ENRAMADA Y TULIMÁN</text>
+  <text x="400" y="86" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" letter-spacing="3" fill="#8a8880">MAZATLÁN · SINALOA</text>
+</svg>

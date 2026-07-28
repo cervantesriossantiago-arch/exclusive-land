@@ -892,7 +892,7 @@
   <!-- Stats -->
   <div class="stats-bar">
     <div class="stat">
-      <div class="stat-num">3+</div>
+      <div class="stat-num">6+</div>
       <div class="stat-label" data-es="Propiedades activas" data-en="Active listings"></div>
     </div>
     <div class="stat">
@@ -1044,6 +1044,78 @@
           <p class="card-price card-price-es">$25,000 MXN / mes</p>
           <p class="card-price card-price-en" style="display:none">$1,427 USD / mo</p>
           <button class="card-btn" onclick="verDetalle('dDepto')">
+            <span data-es="Ver propiedad" data-en="View property"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Terreno Enramada y Tulimán — Sinaloa -->
+      <div class="card" data-tipo="terreno">
+        <div class="card-img-wrap">
+          <img src="imagenes/terreno-sinaloa/foto1.svg" alt="Terreno Enramada y Tulimán" loading="lazy" width="400" height="240"/>
+          <div class="card-badge" data-es="En venta" data-en="For sale"></div>
+          <div class="card-overlay"></div>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title" data-es="Terreno Enramada y Tulimán" data-en="Enramada y Tulimán Land"></h3>
+          <p class="card-location">📍 Sindicatura de El Habal, Mazatlán — Sinaloa</p>
+          <div class="card-specs">
+            <span class="card-spec">2,709,800 m²</span>
+            <span class="card-spec" data-es="Terreno rústico ejidal" data-en="Rustic ejidal land"></span>
+            <span class="card-spec" data-es="Sobre carretera de cuota" data-en="On toll highway"></span>
+          </div>
+          <p class="card-price card-price-es">$1,094,759,200 MXN</p>
+          <p class="card-price card-price-en" style="display:none">$59,175,000 USD <span style="font-size:11px;opacity:.7">(aprox.)</span></p>
+          <button class="card-btn" onclick="verDetalle('dSinaloa')">
+            <span data-es="Ver propiedad" data-en="View property"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Terreno Puerta de Cabo — Los Cabos -->
+      <div class="card" data-tipo="terreno">
+        <div class="card-img-wrap">
+          <img src="imagenes/terreno-puerta-cabo/foto1.jpg" alt="Terreno Puerta de Cabo" loading="lazy" width="400" height="240"/>
+          <div class="card-badge" data-es="En venta" data-en="For sale"></div>
+          <div class="card-overlay"></div>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title" data-es="Terreno Puerta de Cabo" data-en="Puerta de Cabo Land"></h3>
+          <p class="card-location">📍 Puerta Cabos Village, Cabo San Lucas — BCS</p>
+          <div class="card-specs">
+            <span class="card-spec">27,868.86 m²</span>
+            <span class="card-spec" data-es="Uso Mixto Intenso · 6 niveles" data-en="Mixed-Intense use · 6 stories"></span>
+            <span class="card-spec" data-es="Corredor Médano–Marina–Centro" data-en="Médano–Marina–Downtown corridor"></span>
+          </div>
+          <p class="card-price card-price-es">$541,000,000 MXN <span style="font-size:11px;opacity:.7">(aprox.)</span></p>
+          <p class="card-price card-price-en" style="display:none">$29,262,303 USD</p>
+          <button class="card-btn" onclick="verDetalle('dPuertaCabo')">
+            <span data-es="Ver propiedad" data-en="View property"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Terreno La Vista — Lote 11 y 12 -->
+      <div class="card" data-tipo="terreno">
+        <div class="card-img-wrap">
+          <img src="imagenes/terreno-la-vista/foto1.jpg" alt="Terreno La Vista Lote 11 y 12" loading="lazy" width="400" height="240"/>
+          <div class="card-badge" data-es="En venta" data-en="For sale"></div>
+          <div class="card-overlay"></div>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title" data-es="Terreno La Vista — Lote 11 y 12" data-en="La Vista Land — Lot 11 &amp; 12"></h3>
+          <p class="card-location">📍 La Vista, Cabo San Lucas — BCS</p>
+          <div class="card-specs">
+            <span class="card-spec">4,047 m² <span data-es="combinados" data-en="combined"></span></span>
+            <span class="card-spec" data-es="2 lotes contiguos" data-en="2 contiguous lots"></span>
+            <span class="card-spec" data-es="Residencial turístico" data-en="Tourist residential"></span>
+          </div>
+          <p class="card-price card-price-es">$26,000,000 MXN</p>
+          <p class="card-price card-price-en" style="display:none">$1,405,000 USD <span style="font-size:11px;opacity:.7">(aprox.)</span></p>
+          <button class="card-btn" onclick="verDetalle('dLaVista')">
             <span data-es="Ver propiedad" data-en="View property"></span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
@@ -1884,6 +1956,177 @@
     </div>
   </div>
 
+  <!-- Detalle: Sinaloa -->
+  <div class="detail-overlay" id="dSinaloa">
+    <div class="detail-panel">
+      <button class="detail-close" onclick="cerrarDetalle('dSinaloa')">✕</button>
+      <p class="detail-label" data-es="Terreno en venta" data-en="Land for sale"></p>
+      <h2 data-es="Terreno Enramada y Tulimán" data-en="Enramada y Tulimán Land"></h2>
+      <p class="detail-desc"
+         data-es="Extenso terreno rústico de régimen ejidal ubicado dentro de los predios conocidos como &quot;Enramada y Tulimán&quot;, en la Sindicatura de El Habal, municipio de Mazatlán, Sinaloa. Cuenta con acceso directo desde la carretera de cuota Mazatlán–Culiacán. Al ser un predio de origen ejidal, la operación requiere un proceso de regularización agraria, en el cual acompañamos legalmente al comprador."
+         data-en="Extensive rustic ejidal-regime land located within the plots known as &quot;Enramada y Tulimán,&quot; in the El Habal district, municipality of Mazatlán, Sinaloa. It has direct access from the Mazatlán–Culiacán toll highway. As an ejidal-origin property, the transaction requires an agrarian regularization process, through which we provide the buyer full legal support."></p>
+      <div class="detail-specs-grid">
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Superficie" data-en="Area"></div>
+          <div class="detail-spec-value">2,709,800 m² <span style="font-size:12px;opacity:.7">(≈271 ha)</span></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Régimen" data-en="Regime"></div>
+          <div class="detail-spec-value" data-es="Ejidal (rústico)" data-en="Ejidal (rustic)"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Acceso" data-en="Access"></div>
+          <div class="detail-spec-value" data-es="Carretera de cuota Mazatlán–Culiacán" data-en="Mazatlán–Culiacán toll highway"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Ubicación" data-en="Location"></div>
+          <div class="detail-spec-value">El Habal, Mazatlán, Sinaloa</div>
+        </div>
+      </div>
+      <div class="detail-imgs" id="slider-sinaloa">
+        <div class="slider-track">
+          <img src="imagenes/terreno-sinaloa/foto1.svg" alt="Enramada y Tulimán 1"/>
+        </div>
+      </div>
+      <div class="property-map">
+        <iframe src="https://maps.google.com/maps?q=23.3512,-106.4174&z=12&output=embed"
+          width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+      <p class="detail-price detail-price-es">$1,094,759,200 MXN</p>
+      <p class="detail-price detail-price-en" style="display:none">$59,175,000 USD <span style="font-size:12px;opacity:.7">(aprox.)</span></p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="detail-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20Terreno%20Enramada%20y%20Tulim%C3%A1n">
+          <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp"></span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="detail-offer-btn" href="https://wa.me/526121560921?text=Hola,%20quiero%20hacer%20una%20oferta%20por%20el%20Terreno%20Enramada%20y%20Tulim%C3%A1n">
+          <span data-es="Hacer una oferta" data-en="Make an offer"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detalle: Puerta de Cabo -->
+  <div class="detail-overlay" id="dPuertaCabo">
+    <div class="detail-panel">
+      <button class="detail-close" onclick="cerrarDetalle('dPuertaCabo')">✕</button>
+      <p class="detail-label" data-es="Terreno en venta · Proyecto de inversión" data-en="Land for sale · Investment project"></p>
+      <h2 data-es="Terreno Puerta de Cabo" data-en="Puerta de Cabo Land"></h2>
+      <p class="detail-desc"
+         data-es="Terreno urbano de 27,868.86 m² en dos polígonos combinables, ubicado en el corazón de Cabo San Lucas — colonia Puerta Cabos Village, corredor Médano–Marina–Centro. Uso de suelo Mixto Intenso (COS 0.70, CUS 2.80, altura 6 niveles), con capacidad construible de más de 78,000 m². Ideal para desarrollo mixto vertical (residencial + comercial). Acompañamiento legal incluido a través de Nexum Legal."
+         data-en="27,868.86 m² urban land in two combinable polygons, located in the heart of Cabo San Lucas — Puerta Cabos Village neighborhood, Médano–Marina–Downtown corridor. Mixed-Intense land use (COS 0.70, CUS 2.80, 6-story height), with over 78,000 m² of buildable area. Ideal for a vertical mixed-use development (residential + commercial). Legal support included through Nexum Legal."></p>
+      <div class="detail-specs-grid">
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Superficie" data-en="Area"></div>
+          <div class="detail-spec-value">27,868.86 m² <span style="font-size:12px;opacity:.7">(2 <span data-es="polígonos" data-en="polygons"></span>)</span></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Uso de suelo" data-en="Land use"></div>
+          <div class="detail-spec-value" data-es="Mixto Intenso (MI)" data-en="Mixed-Intense (MI)"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Superficie construible" data-en="Buildable area"></div>
+          <div class="detail-spec-value">78,000+ m²</div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Ubicación" data-en="Location"></div>
+          <div class="detail-spec-value" data-es="Puerta Cabos Village, Cabo San Lucas" data-en="Puerta Cabos Village, Cabo San Lucas"></div>
+        </div>
+      </div>
+      <div class="detail-imgs" id="slider-puertacabo">
+        <div class="slider-track">
+          <img src="imagenes/terreno-puerta-cabo/foto1.jpg" alt="Puerta de Cabo 1"/>
+          <img src="imagenes/terreno-puerta-cabo/foto2.jpg" alt="Puerta de Cabo 2"/>
+          <img src="imagenes/terreno-puerta-cabo/foto3.jpg" alt="Puerta de Cabo 3"/>
+        </div>
+        <button class="slider-btn prev" onclick="slideMove('slider-puertacabo',-1)">&#8592;</button>
+        <button class="slider-btn next" onclick="slideMove('slider-puertacabo',1)">&#8594;</button>
+      </div>
+      <div class="slider-dots" id="dots-slider-puertacabo">
+        <button class="slider-dot active"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+      </div>
+      <div class="property-map">
+        <iframe src="https://maps.google.com/maps?q=22.895541,-109.905676&z=16&output=embed"
+          width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+      <p class="detail-price detail-price-es">$541,000,000 MXN <span style="font-size:12px;opacity:.7">(aprox.)</span></p>
+      <p class="detail-price detail-price-en" style="display:none">$29,262,303 USD</p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="detail-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20Terreno%20Puerta%20de%20Cabo">
+          <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp"></span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="detail-offer-btn" href="https://wa.me/526121560921?text=Hola,%20quiero%20hacer%20una%20oferta%20por%20el%20Terreno%20Puerta%20de%20Cabo">
+          <span data-es="Hacer una oferta" data-en="Make an offer"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detalle: La Vista Lote 11 y 12 -->
+  <div class="detail-overlay" id="dLaVista">
+    <div class="detail-panel">
+      <button class="detail-close" onclick="cerrarDetalle('dLaVista')">✕</button>
+      <p class="detail-label" data-es="Terreno en venta" data-en="Land for sale"></p>
+      <h2 data-es="Terreno La Vista — Lote 11 y 12" data-en="La Vista Land — Lot 11 &amp; 12"></h2>
+      <p class="detail-desc"
+         data-es="Dos lotes condominiales contiguos (Lote 11 y Lote 12) dentro del desarrollo La Vista, Cabo San Lucas, con aproximadamente 4,047 m² combinados. Se venden como paquete no divisible. Zona residencial turística con buenos accesos viales. Título libre de gravamen, con escritura, avalúos y constancias de no adeudo predial vigentes."
+         data-en="Two contiguous condominium lots (Lot 11 and Lot 12) within the La Vista development, Cabo San Lucas, totaling approximately 4,047 m² combined. Sold as a non-divisible package. Tourist residential area with good road access. Clean title, with deed, appraisals, and current property-tax clearance certificates."></p>
+      <div class="detail-specs-grid">
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Superficie" data-en="Area"></div>
+          <div class="detail-spec-value">4,047 m² <span style="font-size:12px;opacity:.7">(2 <span data-es="lotes" data-en="lots"></span>)</span></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Uso de suelo" data-en="Land use"></div>
+          <div class="detail-spec-value" data-es="Residencial turístico" data-en="Tourist residential"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Condición" data-en="Condition"></div>
+          <div class="detail-spec-value" data-es="Venta en paquete (no divisible)" data-en="Package sale (non-divisible)"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Ubicación" data-en="Location"></div>
+          <div class="detail-spec-value">La Vista, Cabo San Lucas, BCS</div>
+        </div>
+      </div>
+      <div class="detail-imgs" id="slider-lavista">
+        <div class="slider-track">
+          <img src="imagenes/terreno-la-vista/foto1.jpg" alt="La Vista 1"/>
+          <img src="imagenes/terreno-la-vista/foto2.jpg" alt="La Vista 2"/>
+          <img src="imagenes/terreno-la-vista/foto3.jpg" alt="La Vista 3"/>
+        </div>
+        <button class="slider-btn prev" onclick="slideMove('slider-lavista',-1)">&#8592;</button>
+        <button class="slider-btn next" onclick="slideMove('slider-lavista',1)">&#8594;</button>
+      </div>
+      <div class="slider-dots" id="dots-slider-lavista">
+        <button class="slider-dot active"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+      </div>
+      <div class="property-map">
+        <iframe src="https://maps.google.com/maps?q=22.9174,-109.8710&z=16&output=embed"
+          width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+      <p class="detail-price detail-price-es">$26,000,000 MXN</p>
+      <p class="detail-price detail-price-en" style="display:none">$1,405,000 USD <span style="font-size:12px;opacity:.7">(aprox.)</span></p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="detail-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20Terreno%20La%20Vista%20Lote%2011%20y%2012">
+          <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp"></span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="detail-offer-btn" href="https://wa.me/526121560921?text=Hola,%20quiero%20hacer%20una%20oferta%20por%20el%20Terreno%20La%20Vista%20Lote%2011%20y%2012">
+          <span data-es="Hacer una oferta" data-en="Make an offer"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer>
     <div class="footer-logo">EXCLUSIVE LAND</div>
@@ -1908,7 +2151,7 @@
     const _verDetalle = verDetalle;
     function verDetalle(id) {
       _verDetalle(id);
-      const sliderMap = { dTerreno: 'slider-terreno', dCasa1: 'slider-casa', dDepto: 'slider-depto', dPaloVerde: 'slider-paloverde', dValleDorado: 'slider-valledorado', dCentenarioCalle17: 'slider-calle17' };
+      const sliderMap = { dTerreno: 'slider-terreno', dCasa1: 'slider-casa', dDepto: 'slider-depto', dPaloVerde: 'slider-paloverde', dValleDorado: 'slider-valledorado', dCentenarioCalle17: 'slider-calle17', dSinaloa: 'slider-sinaloa', dPuertaCabo: 'slider-puertacabo', dLaVista: 'slider-lavista' };
       const sid = sliderMap[id];
       if (sid) {
         sliderState[sid] = 0;
