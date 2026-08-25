@@ -697,6 +697,7 @@
     }
 
     /* ── Blog (1) ── */
+    .blog-section {
       padding: 100px 48px;
       background: var(--bg3);
       border-top: 1px solid rgba(201,168,76,.08);
@@ -927,30 +928,6 @@
 
     <div class="cards">
 
-      <!-- Terreno Centenario -->
-      <div class="card" data-tipo="terreno">
-        <div class="card-img-wrap">
-          <img src="imagenes/terreno-centenario/foto.jpg" alt="Terreno Centenario" loading="lazy" width="400" height="240"/>
-          <div class="card-badge" data-es="En venta" data-en="For sale"></div>
-          <div class="card-overlay"></div>
-        </div>
-        <div class="card-content">
-          <h3 class="card-title" data-es="Terreno Centenario" data-en="Centenario Land"></h3>
-          <p class="card-location">📍 El Zacatal, Centenario — BCS</p>
-          <div class="card-specs">
-            <span class="card-spec">9,072 m²</span>
-            <span class="card-spec" data-es="Doble acceso" data-en="Dual access"></span>
-            <span class="card-spec">CP 23205</span>
-          </div>
-          <p class="card-price card-price-es">$13,000,000 MXN</p>
-          <p class="card-price card-price-en" style="display:none">$742,000 USD</p>
-          <button class="card-btn" onclick="verDetalle('dTerreno')">
-            <span data-es="Ver propiedad" data-en="View property"></span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-        </div>
-      </div>
-
       <!-- Terreno Valle Dorado -->
       <div class="card" data-tipo="terreno">
         <div class="card-img-wrap">
@@ -969,31 +946,6 @@
           <p class="card-price card-price-es">$5,400,000 MXN</p>
           <p class="card-price card-price-en" style="display:none">$308,500 USD</p>
           <button class="card-btn" onclick="verDetalle('dValleDorado')">
-            <span data-es="Ver propiedad" data-en="View property"></span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Casa 1 -->
-      <div class="card" data-tipo="terreno">
-        <div class="card-img-wrap">
-          <img src="imagenes/terreno-centenario2/foto1.jpg" alt="Terreno Centenario Calle 17" loading="lazy" width="400" height="240"/>
-          <div class="card-badge" data-es="En venta" data-en="For sale"></div>
-          <div class="card-overlay"></div>
-        </div>
-        <div class="card-content">
-          <h3 class="card-title" data-es="Terreno Centenario Calle 17" data-en="Centenario Calle 17 Land"></h3>
-          <p class="card-location">📍 Calle 17 y 18, Centenario — BCS</p>
-          <div class="card-specs">
-            <span class="card-spec">1,470 m²</span>
-            <span class="card-spec" data-es="De calle a calle" data-en="Street to street"></span>
-            <span class="card-spec" data-es="$1,632/m²" data-en="$1,632/m²"></span>
-            <span class="card-spec" data-es="Terreno baldío" data-en="Vacant land"></span>
-          </div>
-          <p class="card-price card-price-es">$2,400,000 MXN</p>
-          <p class="card-price card-price-en" style="display:none">$137,000 USD</p>
-          <button class="card-btn" onclick="verDetalle('dCentenarioCalle17')">
             <span data-es="Ver propiedad" data-en="View property"></span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
@@ -1044,6 +996,56 @@
           <p class="card-price card-price-es">$25,000 MXN / mes</p>
           <p class="card-price card-price-en" style="display:none">$1,427 USD / mo</p>
           <button class="card-btn" onclick="verDetalle('dDepto')">
+            <span data-es="Ver propiedad" data-en="View property"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Casa Banobras -->
+      <div class="card" data-tipo="casa">
+        <div class="card-img-wrap">
+          <img src="imagenes/casa-banobras/foto2-fachada2.jpg" alt="Casa INVI Ampliación Banobras" loading="lazy" width="400" height="240"/>
+          <div class="card-badge" data-es="En venta" data-en="For sale"></div>
+          <div class="card-overlay"></div>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title" data-es="Casa Ampliación Banobras" data-en="Ampliación Banobras House"></h3>
+          <p class="card-location">📍 Ampliación Banobras, La Paz — BCS</p>
+          <div class="card-specs">
+            <span class="card-spec" data-es="148.17 m² construcción" data-en="148.17 m² built"></span>
+            <span class="card-spec" data-es="142.4 m² terreno" data-en="142.4 m² lot"></span>
+            <span class="card-spec" data-es="3 recámaras" data-en="3 bedrooms"></span>
+            <span class="card-spec" data-es="3 baños" data-en="3 bathrooms"></span>
+          </div>
+          <p class="card-price card-price-es">$3,434,000 MXN</p>
+          <p class="card-price card-price-en" style="display:none">$196,000 USD <span style="font-size:11px;opacity:.7">(aprox.)</span></p>
+          <button class="card-btn" onclick="verDetalle('dCasaBanobras')">
+            <span data-es="Ver propiedad" data-en="View property"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Depto Ballena — Fidepaz -->
+      <div class="card" data-tipo="renta">
+        <div class="card-img-wrap">
+          <img src="imagenes/departamentos-ballena/foto1.jpg" alt="Departamento Ballena Fidepaz" loading="lazy" width="400" height="240"/>
+          <div class="card-badge renta" data-es="En renta" data-en="For rent"></div>
+          <div class="card-overlay"></div>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title" data-es="Departamento Ballena" data-en="Ballena Apartment"></h3>
+          <p class="card-location">📍 Calle Ballena entre Constituyentes, Fidepaz — La Paz</p>
+          <div class="card-specs">
+            <span class="card-spec" data-es="2 recámaras · 1 baño" data-en="2 bedrooms · 1 bathroom"></span>
+            <span class="card-spec" data-es="Semi amueblado" data-en="Semi-furnished"></span>
+            <span class="card-spec" data-es="Cochera para 2 autos" data-en="2-car garage"></span>
+            <span class="card-spec" data-es="Alberca y palapa" data-en="Pool and palapa"></span>
+          </div>
+          <p class="card-price card-price-es">$18,000 MXN / mes</p>
+          <p class="card-price card-price-en" style="display:none">$1,028 USD / mo <span style="font-size:11px;opacity:.7">(aprox.)</span></p>
+          <button class="card-btn" onclick="verDetalle('dDeptoBallena')">
             <span data-es="Ver propiedad" data-en="View property"></span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
@@ -1559,6 +1561,167 @@
     </div>
   </div>
 
+  <!-- Casa Banobras -->
+  <div class="detail-overlay" id="dCasaBanobras">
+    <div class="detail-panel">
+      <button class="detail-close" onclick="cerrarDetalle('dCasaBanobras')">✕</button>
+      <p class="detail-label" data-es="Casa en venta" data-en="House for sale"></p>
+      <h2 data-es="Casa Ampliación Banobras" data-en="Ampliación Banobras House"></h2>
+      <p class="detail-desc" data-es="Casa habitación en Fraccionamiento INVI Ampliación Banobras, La Paz. Construcción con losa de cimentación y muros de block, acabados en vitropiso en todas las áreas. Cuenta con recámaras con closets, cancelería de herrería, cisterna y mini splits. Valor respaldado por avalúo comercial vigente."
+         data-en="Single-family home in Fracc. INVI Ampliación Banobras, La Paz. Concrete slab foundation and block walls, vitropiso flooring throughout. Bedrooms with closets, iron window grilles, cistern, and mini-split A/C units. Value backed by a current commercial appraisal."></p>
+      <div class="detail-specs-grid">
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Construcción" data-en="Built area"></div>
+          <div class="detail-spec-value">148.17 m²</div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Terreno" data-en="Lot size"></div>
+          <div class="detail-spec-value">142.428 m²</div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Recámaras" data-en="Bedrooms"></div>
+          <div class="detail-spec-value">3</div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Baños" data-en="Bathrooms"></div>
+          <div class="detail-spec-value">3</div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Ubicación" data-en="Location"></div>
+          <div class="detail-spec-value" data-es="Fracc. Ampliación Banobras, La Paz" data-en="Ampliación Banobras, La Paz"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Avalúo" data-en="Appraisal"></div>
+          <div class="detail-spec-value" data-es="Vigente (2026)" data-en="Current (2026)"></div>
+        </div>
+      </div>
+      <div class="detail-imgs" id="slider-casabanobras">
+        <div class="slider-track">
+          <img src="imagenes/casa-banobras/foto1-fachada1.jpg" alt="Casa Banobras - Fachada 1"/>
+          <img src="imagenes/casa-banobras/foto2-fachada2.jpg" alt="Casa Banobras - Fachada 2"/>
+          <img src="imagenes/casa-banobras/foto3-cocina.jpg" alt="Casa Banobras - Cocina"/>
+          <img src="imagenes/casa-banobras/foto4-sala1.jpg" alt="Casa Banobras - Sala 1"/>
+          <img src="imagenes/casa-banobras/foto5-sala2.jpg" alt="Casa Banobras - Sala 2"/>
+          <img src="imagenes/casa-banobras/foto6-escalera.jpg" alt="Casa Banobras - Escalera"/>
+          <img src="imagenes/casa-banobras/foto7-recamara1.jpg" alt="Casa Banobras - Recámara 1"/>
+          <img src="imagenes/casa-banobras/foto8-recamara2.jpg" alt="Casa Banobras - Recámara 2"/>
+          <img src="imagenes/casa-banobras/foto9-recamara3.jpg" alt="Casa Banobras - Recámara 3"/>
+          <img src="imagenes/casa-banobras/foto10-estudio.jpg" alt="Casa Banobras - Estudio"/>
+        </div>
+        <button class="slider-btn prev" onclick="slideMove('slider-casabanobras',-1)">&#8592;</button>
+        <button class="slider-btn next" onclick="slideMove('slider-casabanobras',1)">&#8594;</button>
+      </div>
+      <div class="slider-dots" id="dots-slider-casabanobras">
+        <button class="slider-dot active"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+      </div>
+      <div class="property-map">
+        <iframe src="https://maps.google.com/maps?q=24.155,-110.325&z=16&output=embed"
+          width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+      <p class="detail-price detail-price-es">$3,434,000 MXN</p>
+      <p class="detail-price detail-price-en" style="display:none">$196,000 USD <span style="font-size:12px;opacity:.7">(aprox.)</span></p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="detail-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20la%20Casa%20Ampliaci%C3%B3n%20Banobras">
+          <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp"></span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="detail-offer-btn" href="https://wa.me/526121560921?text=Hola,%20quiero%20hacer%20una%20oferta%20por%20la%20Casa%20Ampliaci%C3%B3n%20Banobras">
+          <span data-es="Hacer una oferta" data-en="Make an offer"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Depto Ballena -->
+  <div class="detail-overlay" id="dDeptoBallena">
+    <div class="detail-panel">
+      <button class="detail-close" onclick="cerrarDetalle('dDeptoBallena')">✕</button>
+      <p class="detail-label" data-es="Departamento en renta" data-en="Apartment for rent"></p>
+      <h2 data-es="Departamento Ballena" data-en="Ballena Apartment"></h2>
+      <p class="detail-desc" data-es="Departamento semi amueblado en segunda planta, ubicado en Fidepaz, calle Ballena entre Constituyentes. Zona céntrica con acceso rápido a plazas comerciales, supermercados y hospitales. Cuenta con cochera para dos autos y área común con alberca y palapa."
+         data-en="Semi-furnished second-floor apartment located in Fidepaz, Calle Ballena between Constituyentes. Central location with quick access to shopping plazas, supermarkets, and hospitals. Includes two-car garage and shared pool and palapa area."></p>
+      <div class="detail-specs-grid">
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Recámaras" data-en="Bedrooms"></div>
+          <div class="detail-spec-value">2</div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Baños" data-en="Bathrooms"></div>
+          <div class="detail-spec-value">1</div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Amueblado" data-en="Furnished"></div>
+          <div class="detail-spec-value" data-es="Semi amueblado" data-en="Semi-furnished"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Estacionamiento" data-en="Parking"></div>
+          <div class="detail-spec-value" data-es="Cochera para 2 autos" data-en="2-car garage"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Mantenimiento" data-en="HOA fee"></div>
+          <div class="detail-spec-value">$800 MXN</div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Depósito" data-en="Deposit"></div>
+          <div class="detail-spec-value" data-es="1 mes" data-en="1 month"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Contrato" data-en="Lease"></div>
+          <div class="detail-spec-value" data-es="Mínimo 1 año" data-en="1-year minimum"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Mascotas" data-en="Pets"></div>
+          <div class="detail-spec-value" data-es="No permitidas" data-en="Not allowed"></div>
+        </div>
+        <div class="detail-spec-item">
+          <div class="detail-spec-label" data-es="Fiestas" data-en="Parties"></div>
+          <div class="detail-spec-value" data-es="No permitidas" data-en="Not allowed"></div>
+        </div>
+      </div>
+      <div class="detail-imgs" id="slider-deptoballena">
+        <div class="slider-track">
+          <img src="imagenes/departamentos-ballena/foto1.jpg" alt="Depto Ballena - Exterior"/>
+          <img src="imagenes/departamentos-ballena/foto2.jpg" alt="Depto Ballena - Cocina"/>
+          <img src="imagenes/departamentos-ballena/foto3.jpg" alt="Depto Ballena - Recámara 1"/>
+          <img src="imagenes/departamentos-ballena/foto4.jpg" alt="Depto Ballena - Recámara 2"/>
+          <img src="imagenes/departamentos-ballena/foto5.jpg" alt="Depto Ballena - Área de lavado"/>
+          <img src="imagenes/departamentos-ballena/foto6.jpg" alt="Depto Ballena - Baño"/>
+        </div>
+        <button class="slider-btn prev" onclick="slideMove('slider-deptoballena',-1)">&#8592;</button>
+        <button class="slider-btn next" onclick="slideMove('slider-deptoballena',1)">&#8594;</button>
+      </div>
+      <div class="slider-dots" id="dots-slider-deptoballena">
+        <button class="slider-dot active"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+      </div>
+      <div class="property-map">
+        <iframe src="https://maps.google.com/maps?q=24.1145,-110.3475&z=16&output=embed"
+          width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+      <p class="detail-price detail-price-es">$18,000 MXN / mes</p>
+      <p class="detail-price detail-price-en" style="display:none">$1,028 USD / mo <span style="font-size:12px;opacity:.7">(aprox.)</span></p>
+      <a class="detail-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20Departamento%20Ballena">
+        <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp"></span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
   <!-- Sobre nosotros -->
   <section class="about-section">
     <div class="about-wrapper">
@@ -1666,8 +1829,9 @@
           <label data-es="Propiedad de interés" data-en="Property of interest"></label>
           <select name="propiedad">
             <option value="" data-es="Selecciona una propiedad" data-en="Select a property"></option>
-            <option value="terreno-centenario" data-es="Terreno Centenario — $15,000,000 MXN" data-en="Centenario Land — $856,000 USD"></option>
             <option value="casa-residencial" data-es="Casa Residencial — $6,500,000 MXN" data-en="Residential House — $371,000 USD"></option>
+            <option value="casa-banobras" data-es="Casa Ampliación Banobras — $3,434,000 MXN" data-en="Ampliación Banobras House — $196,000 USD"></option>
+            <option value="depto-ballena" data-es="Departamento Ballena — $18,000 MXN/mes" data-en="Ballena Apartment — $1,028 USD/mo"></option>
             <option value="depto-americas" data-es="Departamento Américas — $25,000 MXN/mes" data-en="Américas Apartment — $1,427 USD/mo"></option>
             <option value="otro" data-es="Otra consulta" data-en="Other inquiry"></option>
           </select>
@@ -1717,6 +1881,46 @@
           <p class="historial-price card-price-es">$16,000,000 MXN / ha</p>
           <p class="historial-price card-price-en" style="display:none">$913,750 USD / ha</p>
           <p class="historial-desc" data-es="Operación concluida exitosamente. Compra de contado con constitución de fideicomiso bancario incluida. Cliente internacional satisfecho." data-en="Successfully closed transaction. Cash purchase with bank trust (fideicomiso) setup included. Satisfied international client."></p>
+        </div>
+      </div>
+
+      <div class="historial-card">
+        <div class="historial-img-wrap">
+          <img src="imagenes/terreno-centenario/foto.jpg" alt="Terreno Centenario" loading="lazy"/>
+          <div class="historial-sold-badge" data-es="VENDIDO" data-en="SOLD"></div>
+        </div>
+        <div class="historial-content">
+          <div class="historial-check">✓</div>
+          <h3 data-es="Terreno Centenario" data-en="Centenario Land"></h3>
+          <p class="historial-location">📍 El Zacatal, Centenario, BCS</p>
+          <div class="card-specs" style="margin-bottom:12px;">
+            <span class="card-spec">9,072 m²</span>
+            <span class="card-spec" data-es="Doble acceso" data-en="Dual access"></span>
+            <span class="card-spec">CP 23205</span>
+          </div>
+          <p class="historial-price card-price-es">$13,000,000 MXN</p>
+          <p class="historial-price card-price-en" style="display:none">$742,000 USD</p>
+          <p class="historial-desc" data-es="Operación concluida exitosamente. Terreno de gran dimensión con doble acceso, en una de las zonas de mayor plusvalía de Centenario." data-en="Successfully closed transaction. Large-scale land with dual access, in one of Centenario's highest-appreciation areas."></p>
+        </div>
+      </div>
+
+      <div class="historial-card">
+        <div class="historial-img-wrap">
+          <img src="imagenes/terreno-centenario2/foto1.jpg" alt="Terreno Centenario Calle 17" loading="lazy"/>
+          <div class="historial-sold-badge" data-es="VENDIDO" data-en="SOLD"></div>
+        </div>
+        <div class="historial-content">
+          <div class="historial-check">✓</div>
+          <h3 data-es="Terreno Centenario Calle 17" data-en="Centenario Calle 17 Land"></h3>
+          <p class="historial-location">📍 Calle 17 y 18, Centenario, BCS</p>
+          <div class="card-specs" style="margin-bottom:12px;">
+            <span class="card-spec">1,470 m²</span>
+            <span class="card-spec" data-es="De calle a calle" data-en="Street to street"></span>
+            <span class="card-spec" data-es="Terreno baldío" data-en="Vacant land"></span>
+          </div>
+          <p class="historial-price card-price-es">$2,400,000 MXN</p>
+          <p class="historial-price card-price-en" style="display:none">$137,000 USD</p>
+          <p class="historial-desc" data-es="Operación concluida exitosamente en una de las zonas de mayor crecimiento de Centenario." data-en="Successfully closed transaction in one of Centenario's fastest-growing areas."></p>
         </div>
       </div>
 
@@ -2151,7 +2355,7 @@
     const _verDetalle = verDetalle;
     function verDetalle(id) {
       _verDetalle(id);
-      const sliderMap = { dTerreno: 'slider-terreno', dCasa1: 'slider-casa', dDepto: 'slider-depto', dPaloVerde: 'slider-paloverde', dValleDorado: 'slider-valledorado', dCentenarioCalle17: 'slider-calle17', dSinaloa: 'slider-sinaloa', dPuertaCabo: 'slider-puertacabo', dLaVista: 'slider-lavista' };
+      const sliderMap = { dTerreno: 'slider-terreno', dCasa1: 'slider-casa', dDepto: 'slider-depto', dPaloVerde: 'slider-paloverde', dValleDorado: 'slider-valledorado', dCentenarioCalle17: 'slider-calle17', dSinaloa: 'slider-sinaloa', dPuertaCabo: 'slider-puertacabo', dLaVista: 'slider-lavista', dCasaBanobras: 'slider-casabanobras', dDeptoBallena: 'slider-deptoballena' };
       const sid = sliderMap[id];
       if (sid) {
         sliderState[sid] = 0;
