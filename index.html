@@ -252,6 +252,77 @@
     }
     .stat-label { font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
 
+    /* ── Featured banner (Buenos Aires) ── */
+    .featured-banner {
+      position: relative; overflow: hidden;
+      min-height: 420px;
+      display: flex; align-items: center;
+      margin: 0;
+    }
+    .featured-banner-bg {
+      position: absolute; inset: 0;
+      background: url('imagenes/buenos-aires/foto1.jpg') center 55% / cover no-repeat;
+      transition: transform 8s ease;
+    }
+    .featured-banner:hover .featured-banner-bg { transform: scale(1.06); }
+    .featured-banner-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(8,12,20,.94) 0%, rgba(8,12,20,.75) 38%, rgba(8,12,20,.35) 70%, rgba(8,12,20,.55) 100%);
+    }
+    .featured-banner-content {
+      position: relative; z-index: 2;
+      padding: 64px 48px; max-width: 640px;
+    }
+    .featured-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(201,168,76,.12); border: 1px solid rgba(201,168,76,.4);
+      color: var(--gold-lt); font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+      padding: 7px 16px; margin-bottom: 22px;
+    }
+    .featured-badge::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+      animation: pulse-dot 1.8s infinite;
+    }
+    @keyframes pulse-dot { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+    .featured-banner-content h2 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 400;
+      font-size: clamp(34px, 4.5vw, 58px); color: var(--white); line-height: 1.08;
+      margin-bottom: 14px;
+    }
+    .featured-banner-content h2 em { font-style: italic; color: var(--gold); }
+    .featured-banner-content p.tagline {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      color: var(--gold-lt); font-size: 18px; margin-bottom: 20px;
+    }
+    .featured-banner-content p.desc {
+      font-size: 14px; color: var(--text); margin-bottom: 28px; max-width: 480px;
+    }
+    .featured-stats { display: flex; gap: 28px; margin-bottom: 32px; flex-wrap: wrap; }
+    .featured-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--gold); line-height: 1; }
+    .featured-stat-label { font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+    .featured-cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+    .featured-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--gold); color: var(--bg);
+      padding: 15px 30px; font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
+      transition: all .25s;
+    }
+    .featured-btn:hover { background: var(--gold-lt); transform: translateY(-2px); }
+    .featured-btn-outline {
+      display: inline-flex; align-items: center; gap: 10px;
+      border: 1px solid rgba(201,168,76,.5); color: var(--gold-lt);
+      padding: 15px 30px; font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
+      transition: all .25s;
+    }
+    .featured-btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,.08); }
+
+    @media (max-width: 700px) {
+      .featured-banner { min-height: auto; }
+      .featured-banner-overlay { background: linear-gradient(180deg, rgba(8,12,20,.55) 0%, rgba(8,12,20,.85) 65%, rgba(8,12,20,.97) 100%); }
+      .featured-banner-content { padding: 44px 24px; max-width: 100%; }
+      .featured-stats { gap: 20px; }
+    }
+
     /* ── Section header ── */
     .section-header { text-align: center; margin-bottom: 64px; }
     .section-eyebrow { font-size: 9px; letter-spacing: .45em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
@@ -909,6 +980,45 @@
       <div class="stat-label" data-es="Plusvalía promedio" data-en="Average appreciation"></div>
     </div>
   </div>
+
+  <!-- Featured Banner: Buenos Aires -->
+  <a class="featured-banner" href="buenos-aires.html" style="text-decoration:none; display:flex;">
+    <div class="featured-banner-bg"></div>
+    <div class="featured-banner-overlay"></div>
+    <div class="featured-banner-content">
+      <div class="featured-badge">
+        <span data-es="Preventa activa" data-en="Active pre-sale"></span>
+      </div>
+      <h2 data-es="Buenos <em>Aires</em>" data-en="Buenos <em>Aires</em>"></h2>
+      <p class="tagline" data-es="Naturaleza para vivir" data-en="Nature to live in"></p>
+      <p class="desc" data-es="143 lotes rústicos en preventa, desde 2,500 m² hasta 1 hectárea, en San Juan de los Planes, La Paz BCS. Precio de contado o financiamiento directo a 8 años."
+         data-en="143 rustic lots in pre-sale, from 2,500 m² up to 1 hectare, in San Juan de los Planes, La Paz BCS. Cash price or direct 8-year financing."></p>
+      <div class="featured-stats">
+        <div>
+          <div class="featured-stat-num">143</div>
+          <div class="featured-stat-label" data-es="Lotes" data-en="Lots"></div>
+        </div>
+        <div>
+          <div class="featured-stat-num">60</div>
+          <div class="featured-stat-label" data-es="Hectáreas" data-en="Hectares"></div>
+        </div>
+        <div>
+          <div class="featured-stat-num">$140</div>
+          <div class="featured-stat-label" data-es="MXN / m²" data-en="MXN / m²"></div>
+        </div>
+        <div>
+          <div class="featured-stat-num">8</div>
+          <div class="featured-stat-label" data-es="Años financiamiento" data-en="Years financing"></div>
+        </div>
+      </div>
+      <div class="featured-cta-row">
+        <span class="featured-btn">
+          <span data-es="Ver proyecto completo" data-en="View full project"></span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+    </div>
+  </a>
 
   <!-- Properties -->
   <section class="properties">
@@ -1624,7 +1734,7 @@
         <button class="slider-dot"></button>
       </div>
       <div class="property-map">
-        <iframe src="https://maps.google.com/maps?q=24.155,-110.325&z=16&output=embed"
+        <iframe src="https://maps.google.com/maps?q=24.115632,-110.313401&z=16&output=embed"
           width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy">
         </iframe>
       </div>
@@ -1709,7 +1819,7 @@
         <button class="slider-dot"></button>
       </div>
       <div class="property-map">
-        <iframe src="https://maps.google.com/maps?q=24.1145,-110.3475&z=16&output=embed"
+        <iframe src="https://maps.google.com/maps?q=24.127159,-110.342726&z=16&output=embed"
           width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy">
         </iframe>
       </div>
