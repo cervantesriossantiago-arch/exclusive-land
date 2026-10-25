@@ -1115,6 +1115,9 @@
         <span data-es="Solicitar información" data-en="Request information"></span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
+      <a class="hero-cta" href="#agenda" style="margin-left:12px">
+        <span data-es="Agendar visita" data-en="Book a visit"></span>
+      </a>
     </div>
     <div class="hero-scroll" style="left:0; right:0; transform:none; align-items:center;">
       <span data-es="Explorar" data-en="Explore"></span>
@@ -1319,8 +1322,8 @@
             <span class="card-spec" data-es="3 recámaras" data-en="3 bedrooms"></span>
             <span class="card-spec" data-es="3 baños" data-en="3 bathrooms"></span>
           </div>
-          <p class="card-price card-price-es">$3,434,000 MXN</p>
-          <p class="card-price card-price-en" style="display:none">$196,000 USD <span style="font-size:11px;opacity:.7">(aprox.)</span></p>
+          <p class="card-price card-price-es"><span style="text-decoration:line-through;opacity:.55;font-size:.75em;margin-right:6px">$3,400,000</span>$3,100,000 MXN</p>
+          <p class="card-price card-price-en" style="display:none">$177,000 USD <span style="font-size:11px;opacity:.7">(aprox.)</span></p>
           <button class="card-btn" onclick="verDetalle('dCasaBanobras')">
             <span data-es="Ver propiedad" data-en="View property"></span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1904,8 +1907,8 @@
           width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy">
         </iframe>
       </div>
-      <p class="detail-price detail-price-es">$3,434,000 MXN</p>
-      <p class="detail-price detail-price-en" style="display:none">$196,000 USD <span style="font-size:12px;opacity:.7">(aprox.)</span></p>
+      <p class="detail-price detail-price-es"><span style="text-decoration:line-through;opacity:.55;font-size:.7em;margin-right:8px">$3,400,000</span>$3,100,000 MXN <span style="font-size:.5em;opacity:.8">o mejor oferta · contado o crédito bancario</span></p>
+      <p class="detail-price detail-price-en" style="display:none">$177,000 USD <span style="font-size:12px;opacity:.7">(aprox.)</span></p>
       <div style="display:flex; gap:12px; flex-wrap:wrap;">
         <a class="detail-cta" href="https://wa.me/526121560921?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20la%20Casa%20Ampliaci%C3%B3n%20Banobras">
           <span data-es="Contactar por WhatsApp" data-en="Contact via WhatsApp"></span>
@@ -1975,6 +1978,21 @@
   </section>
 
   <!-- Contacto -->
+
+  <!-- AGENDA DE VISITAS -->
+  <section class="contact-section" id="agenda" style="padding-bottom:40px">
+    <div class="section-header">
+      <p class="section-eyebrow" data-es="Agenda en línea" data-en="Book online"></p>
+      <h2><span data-es="Agenda tu <em>visita</em>" data-en="Book your <em>visit</em>"></span></h2>
+      <div class="section-line"></div>
+      <p style="max-width:620px;margin:0 auto;opacity:.8;line-height:1.7" data-es="Elige el día y la hora que mejor te acomoden. Indica qué propiedad te interesa y te confirmamos por WhatsApp la ubicación exacta." data-en="Pick the day and time that works best for you. Tell us which property you are interested in and we will confirm the exact location via WhatsApp."></p>
+    </div>
+    <div style="max-width:960px;margin:32px auto 0;padding:0 16px">
+      <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2sruQmuvn8CZ59q7cNtI8QBJeu9IToZJQspBy6Si_zIh3AATrvnMxQhI1-9Z5cAPV9f4tNrr4n?gv=true" style="border:0;width:100%;height:640px;background:#fff;border-radius:8px" frameborder="0" title="Agenda de visitas Exclusive Land"></iframe>
+      <p style="text-align:center;margin-top:16px"><a class="detail-cta" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2sruQmuvn8CZ59q7cNtI8QBJeu9IToZJQspBy6Si_zIh3AATrvnMxQhI1-9Z5cAPV9f4tNrr4n" target="_blank" rel="noopener" style="display:inline-flex"><span data-es="Abrir agenda en otra ventana" data-en="Open booking page in a new window"></span></a></p>
+    </div>
+  </section>
+
   <section class="contact-section">
     <div class="section-header">
       <p class="section-eyebrow" data-es="Escríbenos" data-en="Get in touch"></p>
@@ -2027,7 +2045,7 @@
           <select name="propiedad">
             <option value="" data-es="Selecciona una propiedad" data-en="Select a property"></option>
             <option value="casa-residencial" data-es="Casa Residencial — $6,500,000 MXN" data-en="Residential House — $371,000 USD"></option>
-            <option value="casa-banobras" data-es="Casa Ampliación Banobras — $3,434,000 MXN" data-en="Ampliación Banobras House — $196,000 USD"></option>
+            <option value="casa-banobras" data-es="Casa Ampliación Banobras — $3,100,000 MXN" data-en="Ampliación Banobras House — $177,000 USD"></option>
             <option value="depto-americas" data-es="Departamento Américas — $25,000 MXN/mes" data-en="Américas Apartment — $1,427 USD/mo"></option>
             <option value="otro" data-es="Otra consulta" data-en="Other inquiry"></option>
           </select>
